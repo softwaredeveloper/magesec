@@ -58,7 +58,7 @@ return [
             'port' => env('DB_PORT', '3306'),
             'database' => env('DB_DATABASE', 'magesec_laravel'),
             'username' => env('DB_USERNAME', 'magesec_laravel'),
-            'password' => env('DB_PASSWORD', '0p0bot7rn3iw4'),
+            'password' => env('DB_PASSWORD', '0cmd7gi6gmru'),
             'charset' => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix' => '',
@@ -107,6 +107,7 @@ return [
 
     'redis' => [
 
+        'client' => 'predis',
         'cluster' => false,
 
         'default' => [
