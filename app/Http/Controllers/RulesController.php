@@ -14,7 +14,7 @@ class RulesController extends Controller
     {
         // Validate and store the rule...
         $validator = validator::make($request->all(), [
-        'name' => 'required|regex:^[A-Za-z][A-Za-z0-9_-]*$|max:20',
+        'name' => 'required|regex:"^[A-Za-z][A-Za-z0-9_-]*$"|max:20',
         'rule' => 'required',
         ]);
 
