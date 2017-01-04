@@ -8,6 +8,7 @@
 
 <div class="msc-block-info">
 <form name="rule" method="post" action="/scanner-rule-submit">
+<input type="hidden" name="_token" value="{{ csrf_token() }}">
 Rule Name:<input type="text" name="name" size="20" maxchar="20"/>
 <br/>Rule:<textarea name="rule"></textarea>
 <input type="submit" value="Submit New Rule"/>
