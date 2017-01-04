@@ -41,10 +41,10 @@ class RulesController extends Controller
 		      'contributor' => $user_id,
 		      'created_at' => 'now()',
 		      'updated at' => 'now()',
-		      'active' => 0
-		      'under_review' => 1
-		      'approved_by' => 0
-		      'type' => 'STANDARD'
+		      'active' => 0,
+		      'under_review' => 1,
+		      'approved_by' => 0,
+		      'type' => 'STANDARD',
 		      'rules' => $request->rule
 		      ]);
 		  }
