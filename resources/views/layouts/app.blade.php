@@ -18,21 +18,27 @@
             <button class="navbar-toggler hidden-sm-up float-xs-right" type="button" data-toggle="collapse" data-target="#navbar-header" aria-controls="navbar-header" aria-expanded="false" aria-label="Toggle navigation"></button>
             <div class="collapse navbar-toggleable-xs msc-navbar" id="navbar-header">
               <ul class="nav navbar-nav msc-nav-list msc-nav-uset float-xs-right">
+                @if (Auth::check())
                 <li class="nav-item">
-                  <a class="nav-link" href="./page.html">Login</a>
+				  <a class="nav-link" href="/home">Account</a>
+                </li>
+                @else
+                <li class="nav-item">
+                  <a class="nav-link" href="/login">Login</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="./page.html">Register</a>
+                  <a class="nav-link" href="/register">Register</a>
                 </li>
+                @endif
               </ul>
               <ul class="nav navbar-nav msc-nav-list float-xs-right">
                 <li class="nav-item active">
-                  <a class="nav-link" href="./page.html">Home <span class="sr-only">(current)</span></a>
+                  <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                 <a class="nav-link dropdown-toggle" href="./page.html" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Site Scanner</a>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="./page.html">Scanner Home</a>
+                    <a class="dropdown-item" href="/scanner">Scanner Home</a>
                     <a class="dropdown-item" href="./page.html">Instructions</a>
                     <a class="dropdown-item" href="./page.html">Contribute Roles</a>
                     <a class="dropdown-item" href="./page.html">Contribute Whitelisting</a>
@@ -57,7 +63,18 @@
       </div>
     </div>
   </header> <!-- Header -->
-  @yield('content')
+    <main class="msc-content">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 msc-content__left">
+          <article class="msc-block msc-slider">
+           @yield('content')
+            </article>
+          </div>
+          @include('sidebar')
+        </div>
+      </div>
+  </main>
   <footer class="msc-foot">
     <div class="container">
       <div class="col-md-12">

@@ -1,11 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-  <main class="msc-content">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-8 msc-content__left">
-          <article class="msc-block msc-slider">
             <h1 class="msc-block__title">
               Featured Posts
             </h1>
@@ -217,31 +212,5 @@
               <li><a href="">3</a></li>
               <li class="msc-pagn-next"><a href="">Next</a></li>
             </ul>
-          </article>
-        </div>
-        <div class="col-md-4 msc-content__right">
-          <article class="msc-block">
-            <h1 class="msc-block__title">
-              Supports
-            </h1>
-            <ul class="msc-list">
-              <li><a href="./page.html">Support Center Home</a></li>
-              <li><a href="./page.html">Training &amp; Center</a></li>
-              <li><a href="./page.html">Support Services</a></li>
-              <li><a href="./page.html">Contact Support</a></li>
-            </ul>
-          </article>
-          <article class="msc-block">
-            <h1 class="msc-block__title">
-              Useful sites
-            </h1>
-            <ul class="msc-list">
-              <li><a href="./page.html">Microsoft Security Center</a></li>
-              <li><a href="./page.html">Cyber Security</a></li>
-            </ul>
-          </article>
-        </div>
-      </div>
-    </div>
-  </main>
+
   @endsection
