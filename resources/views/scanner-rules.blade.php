@@ -10,6 +10,7 @@
 <form name="rule" method="post" action="/scanner-rule-submit">
 Rule Name:<input type="text" name="name" size="20" maxchar="20"/>
 <br/>Rule:<textarea name="rule"></textarea>
+<input type="submit" value="Submit New Rule"/>
 </form>
 </div>
 </article>
