@@ -22,7 +22,8 @@ class RulesController extends Controller
         ]);
 
         if (!$validator->fails()) {
-          file_put_contents('../temp/'.$request->name.'.yar',$request->rule);
+          $rule = 'rule '.$request->name."\n{".$request->rule."\n}";
+          file_put_contents('../temp/'.$request->name.'.yar',$rule);
           $result = exec('yara -r ../temp/'.$request->name.'.yar ../temp/testfile.txt 2>&1');
           print_r($result);
 		  if (strlen($result) > 0) {
@@ -33,7 +34,7 @@ class RulesController extends Controller
 		    } else {
 		      $user_id = 0;
 		    }
-            $rule = 'rule '.$request->name."\n{".$request->rule."\n}";
+
 		    DB::insert('insert into malware_rules (name, contributor, created_at, updated_at, active, under_review, approved_by, type, rule) values (:name, :contributor, now(), now(), :active, :under_review, :approved_by, :type, :rule)',
 		      [
 		      'name' => $request->name,
