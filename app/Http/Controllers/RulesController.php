@@ -19,8 +19,8 @@ class RulesController extends Controller
         ]);
 
         if (!$validator->fails()) {
-          file_put_contents('temp/'.$request->name.'.yar',$request->rule);
-          $result = exec('yara -r temp/'.$request->name.'.yar temp/testfile.txt');
+          file_put_contents('../temp/'.$request->name.'.yar',$request->rule);
+          $result = exec('yara -r ../temp/'.$request->name.'.yar ../temp/testfile.txt');
           print_r($result);
 
         }
