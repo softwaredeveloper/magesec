@@ -67,9 +67,9 @@
       <div class="container">
         <div class="row">
           <div class="col-md-8 msc-content__left">
-          <article class="msc-block msc-slider">
+
            @yield('content')
-            </article>
+
           </div>
           @include('sidebar')
         </div>
