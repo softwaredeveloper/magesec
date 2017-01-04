@@ -35,7 +35,7 @@ class RulesController extends Controller
 		    }
 		    #DB::insert("insert into malware_rules (name, contributor, created_at, updated at, active, under_review, approved_by, type, rules)
 		    #values('".mysqli_real_escape_string($request->name)."',".$user_id.",now(),now(),0,1,0,'STANDARD','".mysqli_real_escape_string($request->rule)."')");
-		    DB::insert('insert into malware_rules (name, contributor, created_at, updated_at, active, under_review, approved_by, type, rules) values (:name, :contributor, now(), now(), :active, :under_review, :approved_by, :type, :rules)',
+		    DB::insert('insert into malware_rules (name, contributor, created_at, updated_at, active, under_review, approved_by, type, rule) values (:name, :contributor, now(), now(), :active, :under_review, :approved_by, :type, :rule)',
 		      [
 		      'name' => $request->name,
 		      'contributor' => $user_id,
@@ -43,7 +43,7 @@ class RulesController extends Controller
 		      'under_review' => 1,
 		      'approved_by' => 0,
 		      'type' => 'STANDARD',
-		      'rules' => $request->rule
+		      'rule' => $request->rule
 		      ]);
 		  }
         }
