@@ -32,10 +32,18 @@
                 @endif
               </ul>
               <ul class="nav navbar-nav msc-nav-list float-xs-right">
+                @if ($nav === 'index')
                 <li class="nav-item active">
+                @else
+                <li class="nav-item">
+                @endif
                   <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item">
+                @if ($nav === 'scanner')
+                <li class="nav-item active">
+                @else
+				<li class="nav-item">
+                @endif
                 <a class="nav-link dropdown-toggle" href="./page.html" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Site Scanner</a>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     <a class="dropdown-item" href="/scanner">Scanner Home</a>
@@ -44,16 +52,32 @@
                     <a class="dropdown-item" href="/scanner-whitelist">Contribute Whitelisting</a>
                   </div>
                 </li>
-                <li class="nav-item">
+                @if ($nav === 'tools')
+                <li class="nav-item active">
+                @else
+				<li class="nav-item">
+                @endif
                   <a class="nav-link" href="/tools">Tools</a>
                 </li>
-                <li class="nav-item">
+                @if ($nav === 'council')
+                <li class="nav-item active">
+                @else
+				<li class="nav-item">
+                @endif
                   <a class="nav-link" href="council">Security Council</a>
                 </li>
-                <li class="nav-item">
+                @if ($nav === 'faq')
+                <li class="nav-item active">
+                @else
+				<li class="nav-item">
+                @endif
                   <a class="nav-link" href="/faq">Faq</a>
                 </li>
-                <li class="nav-item">
+                @if ($nav === 'about')
+                <li class="nav-item active">
+                @else
+				<li class="nav-item">
+                @endif
                   <a class="nav-link" href="/about">About</a>
                 </li>
               </ul>

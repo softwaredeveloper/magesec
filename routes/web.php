@@ -31,6 +31,8 @@ Route::get('/scanner-whitelist', function () {
     return view('scanner-whitelist',[ 'nav' => 'scanner' ]);
 });
 
+Route::post('/scanner-rule-submit', 'RulesController@create');
+
 Route::get('/tools', function () {
     return view('tools',[ 'nav' => 'tools' ]);
 });
