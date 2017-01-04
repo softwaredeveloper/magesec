@@ -23,7 +23,7 @@ class RulesController extends Controller
 
         if (!$validator->fails()) {
           file_put_contents('../temp/'.$request->name.'.yar',$request->rule);
-          $result = exec('yara -r ../temp/'.$request->name.'.yar ../temp/testfile.txt');
+          $result = exec('yara -r ../temp/'.$request->name.'.yar ../temp/testfile.txt 2>&1');
           print_r($result);
 		  if (strlen($result) > 0) {
 		    $yaraerror = $result;
