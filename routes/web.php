@@ -12,7 +12,27 @@
 */
 
 Route::get('/', function () {
-    return view('index');
+    return view('index',[ 'nav' => 'index' ]);
+});
+
+Route::get('/scanner', function () {
+    return view('scanner',[ 'nav' => 'scanner' ]);
+});
+
+Route::get('/scanner-instructions', function () {
+    return view('scanner-instructions',[ 'nav' => 'scanner' ]);
+});
+
+Route::get('/scanner-rules', function () {
+    return view('scanner-rules',[ 'nav' => 'scanner' ]);
+});
+
+Route::get('/scanner-whitelist', function () {
+    return view('scanner-whitelist',[ 'nav' => 'scanner' ]);
+});
+
+Route::get('/tools', function () {
+    return view('tools',[ 'nav' => 'tools' ]);
 });
 
 Auth::routes();
