@@ -33,7 +33,7 @@ class RulesController extends Controller
 		    } else {
 		      $user_id = 0;
 		    }
-		    DB::insert("insert into malware_rules (name, contributor, created_at, updated at, active, under_review, approved_by, type, rules) values('".mysql_real_escape_string($request->name)."',".$user_id.",now(),now(),0,1,0,'STANDARD','".mysql_real_escape_string($request->rule)."')");
+		    DB::insert("insert into malware_rules (name, contributor, created_at, updated at, active, under_review, approved_by, type, rules) values('".mysqli_real_escape_string($request->name)."',".$user_id.",now(),now(),0,1,0,'STANDARD','".mysqli_real_escape_string($request->rule)."')");
 		  }
         }
 
