@@ -28,7 +28,7 @@ class HomeController extends Controller
     {
         DB::connection()->enableQueryLog();
         if (Auth::user()->admin == 1) {
-          return view('admin', [ 'nav' => 'none' ] )->with('pending_rules', MalwareRules::where('under_review', '=', 0));
+          return view('admin', [ 'nav' => 'none' ] )->with('pending_rules', MalwareRules::where(['under_review', 0]));
         } else {
           return view('home', [ 'nav' => 'none' ] )->with('malware_rules', MalwareRules::where('contributor', '=', Auth::user()->id));
         }
