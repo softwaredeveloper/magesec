@@ -22,6 +22,8 @@ class RulesController extends Controller
         ]);
 
         if (!$validator->fails()) {
+
+          //TODO: Check if rule name exists, if owned by same user prompt for update
           $rule = 'rule '.$request->name."\n{".$request->rule."\n}";
           file_put_contents('../temp/'.$request->name.'.yar',$rule);
           $result = exec('yara -r ../temp/'.$request->name.'.yar ../temp/testfile.txt 2>&1');
