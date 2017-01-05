@@ -9,6 +9,9 @@
 
                 <div class="panel-body">
                     Admin logged in!
+                    @foreach ($malware_rules as $malware_rule)
+                      {{ $malware_rule->name }}
+                    @endforeach
                 </div>
             </div>
         </div>
