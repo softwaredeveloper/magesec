@@ -23,6 +23,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home', [ 'nav' => 'none' ] );
+        if (Auth::user()->admin == 1) {
+          return view('admin', [ 'nav' => 'none' ] )->with('malware_rules', MalwareRules::all());
+        } else {
+          return view('home', [ 'nav' => 'none' ] )->with('malware_rules', MalwareRules::all());
+        }
     }
 }
