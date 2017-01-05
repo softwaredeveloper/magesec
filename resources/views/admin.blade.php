@@ -23,5 +23,5 @@ Rules Pending Approval
 @endforeach
 </table>
 </div>
-</artcle>
+</article>
 @endsection
