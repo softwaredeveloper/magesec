@@ -40,7 +40,7 @@ class RuleVerify extends Command
     {
         $rules = DB::select('select * from malware_rules where under_review = 1 and rejected = 0');
         foreach ($rules as $rule) {
-          $results = exec('yara -r temp/'.$rule->name.'.yar /home/magento_versions/');
+          $result = exec('yara -r temp/'.$rule->name.'.yar /home/magento_versions/');
           if (strlen($result) > 0) {
             DB::update('update malware_rules set under_review = 0, rejected = 1 where entity_id = :entity_id',
               [ 'entity_id' => $rule->entity_id ]);
