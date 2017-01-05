@@ -6,7 +6,7 @@
 Rules Pending Approval
 </h1>
 <div class="msc-block-info">
-<table>
+<table width="100%" border="1">
 <tr>
 <td>Name</td>
 <td>Created</td>
