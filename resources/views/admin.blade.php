@@ -1,20 +1,27 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Dashboard</div>
-
-                <div class="panel-body">
-                    Admin logged in!
-                    @foreach ($malware_rules as $malware_rule)
-                      {{ $malware_rule->name }}
-                    @endforeach
-                </div>
-            </div>
-        </div>
-    </div>
+<article class="msc-block">
+<h1 class="msc-block__title">
+Rules Pending Approval
+</h1>
+<div class="msc-block-info">
+<table>
+<tr>
+<td>Name</td>
+<td>Created</td>
+<td>Updated</td>
+<td>Actions</td>
+</tr>
+@foreach ($pending_rules as $rule)
+  <tr>
+  <td>{{ $rule->name }}</td>
+  <td>{{ $rule->created_at }}</td>
+  <td>{{ $rule->updated_at }}</td>
+  <td>Approve / Reject</td>
+  </tr>
+@endforeach
+</table>
 </div>
+</artcle>
 @endsection
