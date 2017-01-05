@@ -27,7 +27,10 @@ class HomeController extends Controller
     public function index()
     {
         if (Auth::user()->admin == 1) {
-          return view('admin', [ 'nav' => 'none' ] )->with('pending_rules', MalwareRules::all()->where('under_review', 0)->where('approved_by',0));
+          return view('admin', [ 'nav' => 'none' ] )
+            ->with('pending_rules', MalwareRules::all()->where('under_review', 0)->where('approved_by',0)
+            ->with('all_rules', MalwareRules::all()->simplepageinate(20))
+          );
         } else {
           return view('home', [ 'nav' => 'none' ] )->with('malware_rules', MalwareRules::all()->where('contributor', '=', Auth::user()->id));
         }
