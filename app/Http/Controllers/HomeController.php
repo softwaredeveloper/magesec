@@ -27,7 +27,7 @@ class HomeController extends Controller
     public function index()
     {
         if (Auth::user()->admin == 1) {
-          $all_rules = MalwareRules::all()->paginate(20);
+          $all_rules = MalwareRules::paginate(20);
           return view('admin', [ 'nav' => 'none' ] )
             ->with('pending_rules', MalwareRules::all()->where('under_review', 0)->where('approved_by',0)
             ->with('all_rules', $all_rules)
