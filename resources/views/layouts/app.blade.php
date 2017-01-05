@@ -32,6 +32,9 @@
                 @endif
               </ul>
               <ul class="nav navbar-nav msc-nav-list float-xs-right">
+                @if (isset($nav))
+                  {{ $nav = '' }}
+                @endif
                 @if ($nav === 'index')
                 <li class="nav-item active">
                 @else
