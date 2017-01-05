@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Auth;
+use App\MalwareRules;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
