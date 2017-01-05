@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Auth;
 use App\MalwareRules;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -25,10 +26,13 @@ class HomeController extends Controller
      */
     public function index()
     {
+        DB::connection()->enableQueryLog();
         if (Auth::user()->admin == 1) {
           return view('admin', [ 'nav' => 'none' ] )->with('pending_rules', MalwareRules::where('under_review', '=', 0));
         } else {
           return view('home', [ 'nav' => 'none' ] )->with('malware_rules', MalwareRules::where('contributor', '=', Auth::user()->id));
         }
+        $queries = DB::getQueryLog();
+        print_r($queries);
     }
 }
