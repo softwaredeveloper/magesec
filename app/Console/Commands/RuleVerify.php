@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Console\Command;
 
 class RuleVerify extends Command
@@ -11,14 +12,14 @@ class RuleVerify extends Command
      *
      * @var string
      */
-    protected $signature = 'command:name';
+    protected $signature = 'rule:verify';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Verify Yara Rule against false positives';
 
     /**
      * Create a new command instance.
@@ -37,6 +38,10 @@ class RuleVerify extends Command
      */
     public function handle()
     {
-        //
+        print 'here';
+        $rules = DB::select('select * from malware_rules where under_review = 1 and rejected = 0');
+        foreach ($rules as $rule) {
+          print_r($rule);
+        }
     }
 }
