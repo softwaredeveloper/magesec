@@ -18,7 +18,9 @@ Rules Pending Approval
   <td>{{ $rule->name }}</td>
   <td>{{ $rule->created_at }}</td>
   <td>{{ $rule->updated_at }}</td>
-  <td>Approve / Reject</td>
+  <td><a href="/rule-edit?entity_id={{ $rule->entity_id }}">Edit</a> |
+    <a href="/rule-approve?entity_id={{ $rule->entity_id }}&approve=1">Approve</a> |
+    <a href="/rule-approve?entity_id={{ $rule->entity_id }}&approve=0">Reject</a></td>
   </tr>
 @endforeach
 </table>
@@ -41,11 +43,11 @@ All Rules
   <td>{{ $rule->name }}</td>
   <td>{{ $rule->created_at }}</td>
   <td>{{ $rule->updated_at }}</td>
-  <td>Approve / Reject</td>
+  <td><a href="/rule-edit?entity_id={{ $rule->entity_id }}">Edit</a></td>
   </tr>
 @endforeach
 </table>
-{{ $all_rules->links() }}
+{{ $all_rules->render() }}
 </div>
 </article>
 @endsection

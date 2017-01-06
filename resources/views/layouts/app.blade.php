@@ -14,7 +14,7 @@
       <div class="row">
         <div class="col-md-12">
           <nav class="navbar navbar-light msc-nav">
-            <a href="./index.html" class="msc-logo"><img src="images/msc-logo.png" alt="msc-logo" class="msc-logo"></a>
+            <a href="/" class="msc-logo"><img src="images/msc-logo.png" alt="msc-logo" class="msc-logo"></a>
             <button class="navbar-toggler hidden-sm-up float-xs-right" type="button" data-toggle="collapse" data-target="#navbar-header" aria-controls="navbar-header" aria-expanded="false" aria-label="Toggle navigation"></button>
             <div class="collapse navbar-toggleable-xs msc-navbar" id="navbar-header">
               <ul class="nav navbar-nav msc-nav-list msc-nav-uset float-xs-right">
@@ -22,12 +22,15 @@
                 <li class="nav-item">
 				  <a class="nav-link" href="/home">Account</a>
                 </li>
+                <li class="nav-item">
+				  <a class="nav-link" href="/logout">Logout</a>
+                </li>
                 @else
                 <li class="nav-item">
-                  <a class="nav-link" href="/login">Login</a>
+                  <a class="nav-link" href="/register">Register</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="/register">Register</a>
+                  <a class="nav-link" href="/login">Login</a>
                 </li>
                 @endif
               </ul>
@@ -54,7 +57,7 @@
                     <a class="dropdown-item" href="/scanner">Scanner Home</a>
                     <a class="dropdown-item" href="/scanner-instructions">Instructions</a>
                     <a class="dropdown-item" href="/scanner-rules">Contribute Rules</a>
-                    <a class="dropdown-item" href="/scanner-whitelist">Contribute Whitelisting</a>
+                    <!--<a class="dropdown-item" href="/scanner-whitelist">Contribute Whitelisting</a>//-->
                   </div>
                 </li>
                 @if ($nav === 'tools')
@@ -64,19 +67,19 @@
                 @endif
                   <a class="nav-link" href="/tools">Tools</a>
                 </li>
+                @if ($nav === 'practices')
+                <li class="nav-item active">
+                @else
+				<li class="nav-item">
+                @endif
+                  <a class="nav-link" href="/best-practices">Best Practices</a>
+                </li>
                 @if ($nav === 'council')
                 <li class="nav-item active">
                 @else
 				<li class="nav-item">
                 @endif
                   <a class="nav-link" href="council">Security Council</a>
-                </li>
-                @if ($nav === 'faq')
-                <li class="nav-item active">
-                @else
-				<li class="nav-item">
-                @endif
-                  <a class="nav-link" href="/faq">Faq</a>
                 </li>
                 @if ($nav === 'about')
                 <li class="nav-item active">
@@ -112,7 +115,7 @@
           <li><a href="#">TOS</a></li>
           <li><a href="#">Privacy Policy</a></li>
         </ul>
-        <p>&copy; Copyright Mage Security Council. All Rights Reserved.</p>
+        <p>Copyright &copy; @php print date('Y'); @endphp Mage Security Council. All Rights Reserved.</p>
       </div>
     </div>
   </footer>

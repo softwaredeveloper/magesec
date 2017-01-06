@@ -37,6 +37,50 @@ Route::get('/tools', function () {
     return view('tools',[ 'nav' => 'tools' ]);
 });
 
+Route::get('/best-practices', function () {
+    return view('best-practices',[ 'nav' => 'practices' ]);
+});
+
+Route::get('/best-practices-hosting', function () {
+    return view('best-practices-hosting',[ 'nav' => 'practices' ]);
+});
+
+Route::get('/best-practices-developers', function () {
+    return view('best-practices-developers',[ 'nav' => 'practices' ]);
+});
+
+Route::get('/best-practices-merchants', function () {
+    return view('best-practices',[ 'nav' => 'practices' ]);
+});
+
+Route::get('/council', function () {
+    return view('council',[ 'nav' => 'council' ]);
+});
+
+Route::get('/about', function () {
+    return view('about',[ 'nav' => 'about' ]);
+});
+
+Route::get('/contact', function () {
+    return view('contact',[ 'nav' => 'none' ]);
+});
+
+Route::get('/tos', function () {
+    return view('tos',[ 'nav' => 'none' ]);
+});
+
+Route::get('/privacy', function () {
+    return view('privacy',[ 'nav' => 'none' ]);
+});
+
 Auth::routes();
 
+Route::get('/logout', 'HomeController@logout');
+
 Route::get('/home', 'HomeController@index');
+
+Route::get('/rule-edit', 'RulesController@edit');
+
+Route::get('/rule-approve', 'RulesController@approve');
+
+Route::post('/rule-save', 'RulesController@save');

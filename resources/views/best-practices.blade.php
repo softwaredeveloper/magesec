@@ -3,20 +3,12 @@
 @section('content')
           <article class="msc-block msc-slider">
             <h1 class="msc-block__title">
-              Security Tools
+              Best Security Practices
             </h1>
           </article>
           <article class="msc-block msc-slider">
             <h1 class="msc-block__title">
-              <a href="/scanner">Site Malware Scanner</a>
-            </h1>
-            <div class="msc-block-info">
-            <p>Desc</p>
-            </div>
-          </article>
-          <article class="msc-block msc-slider">
-            <h1 class="msc-block__title">
-              <a href="http://magereport.com" target="blank">Magereport<a>
+              <a href="/best-practices-hosting">For Hosting Providers</a>
             </h1>
             <div class="msc-block-info">
             <p>Desc</p>
@@ -24,7 +16,7 @@
           </article>
           <article class="msc-block msc-slider">
             <h1 class="msc-block__title">
-              <a href="/patch">Magemojo Complete Patch</a>
+              <a href="/best-practices-developers">For Developers<a>
             </h1>
             <div class="msc-block-info">
             <p>Desc</p>
@@ -32,7 +24,7 @@
           </article>
           <article class="msc-block msc-slider">
             <h1 class="msc-block__title">
-              <a href="https://github.com/netz98/n98-magerun" target="_blank">n98-magertun</a>
+              <a href="/best-practices-mechants">For Merchants / End Users</a>
             </h1>
             <div class="msc-block-info">
             <p>Desc</p>
