@@ -13,7 +13,9 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        Commands\RuleVerify::class
+        Commands\RuleVerify::class,
+        Commands\RuleCreate::class,
+        Commands\RuleUpdate::class
     ];
 
     /**
@@ -25,6 +27,7 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
     	$schedule->command('rule:verify')->hourly();
+    	$schedule->command('rule:update')->everyTenMinutes();
     }
 
     /**

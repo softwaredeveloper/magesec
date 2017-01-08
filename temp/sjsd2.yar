@@ -1,7 +1,6 @@
 rule sjsd2
-{meta:
-author = "Magemojo"
-    strings: 
+{
+strings: 
 	$ = "@${'yMk'}=$ {\"_REQUEST\"};"
 condition: any of them
 }

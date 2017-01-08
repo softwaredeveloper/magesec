@@ -28,13 +28,13 @@ class RulesController extends Controller
               'name' => 'required|regex:"^[A-Za-z][A-Za-z0-9_-]*$"|max:20',
               'string' => 'required|max:500',
             ]);
-            $rule = 'rule '.$request->name."\n{\nstrings: $=\"".str_replace('"','\"',$request->string)."\"\ncondition:any of them\n}";
+            $rule = 'strings: $="'.str_replace('"','\"',$request->string)."\"\ncondition:any of them";
           } else {
             $validator = validator::make($request->all(), [
               'name' => 'required|regex:"^[A-Za-z][A-Za-z0-9_-]*$"|max:20',
               'rule' => 'required',
             ]);
-            $rule = 'rule '.$request->name."\n{".$request->rule."\n}";
+            $rule = $request->rule;
           }
         }
 
@@ -45,7 +45,8 @@ class RulesController extends Controller
             $validator->errors()->add('duplicate_name', 'A Rule with this Name Already Exists.');
             return redirect('/scanner-rules?entity_id='.$request->entity_id)->withErrors($validator)->withInput();
           } else {
-            file_put_contents('../temp/'.$request->name.'.yar',$rule);
+            $testrule = 'rule '.$request->name."\n{\n".$rule."\n}";
+            file_put_contents('../temp/'.$request->name.'.yar',$testrule);
             $result = exec('yara -r ../temp/'.$request->name.'.yar ../temp/testfile.txt 2>&1');
 		    if (strlen($result) > 0) {
 		      $yaraerror = $result;
@@ -105,7 +106,8 @@ class RulesController extends Controller
 	        ]);
 
         if (!$validator->fails()) {
-          file_put_contents('../temp/'.$request->name.'.yar',$request->rule);
+          $testrule = 'rule '.$request->name."\n{\n".$request->rule."\n}";
+          file_put_contents('../temp/'.$request->name.'.yar',$testrule);
           $result = exec('yara -r ../temp/'.$request->name.'.yar ../temp/testfile.txt 2>&1');
           if (strlen($result) > 0) {
 		    $yaraerror = $result;
