@@ -111,9 +111,9 @@
     <div class="container">
       <div class="col-md-12">
         <ul class="msc-list msc-list--inline">
-          <li><a href="#">Contact</a></li>
-          <li><a href="#">TOS</a></li>
-          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="/contact">Contact</a></li>
+          <li><a href="/tos">TOS</a></li>
+          <li><a href="/privacy">Privacy Policy</a></li>
         </ul>
         <p>Copyright &copy; @php print date('Y'); @endphp Mage Security Council. All Rights Reserved.</p>
       </div>

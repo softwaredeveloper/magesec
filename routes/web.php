@@ -15,9 +15,7 @@ Route::get('/', function () {
     return view('index',[ 'nav' => 'index' ]);
 });
 
-Route::get('/scanner', function () {
-    return view('scanner',[ 'nav' => 'scanner' ]);
-});
+Route::get('/scanner', 'RulesController@home');
 
 Route::get('/scanner-instructions', function () {
     return view('scanner-instructions',[ 'nav' => 'scanner' ]);

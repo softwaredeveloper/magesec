@@ -2,6 +2,11 @@
 
 namespace App\Console\Commands;
 
+use App\MalwareRules;
+use App\User;
+use Mail;
+use App\Mail\RuleReviewed;
+use Illuminate\Mail\Mailer;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Console\Command;
 
@@ -38,18 +43,33 @@ class RuleVerify extends Command
      */
     public function handle()
     {
-        $rules = DB::select('select * from malware_rules where under_review = 1 and rejected = 0');
+        $rules = MalwareRules::all()->where('under_review',1)->where('rejected',0);
+
+
         foreach ($rules as $rule) {
+
           $result = exec('yara -r temp/'.$rule->name.'.yar /home/magento_versions/');
           if (strlen($result) > 0) {
-            DB::update('update malware_rules set under_review = 0, rejected = 1 where entity_id = :entity_id',
-              [ 'entity_id' => $rule->entity_id ]);
-            //TODO: Send notification to submittor
+
+            if ($rule->contributor > 0) {
+              $user = User::find($rule->contributor);
+              Mail::to($user->email)->subject('Malware Rule Rejected')->send(new RuleRejected);
+            }
+
+            $rule->under_review = 0;
+            $rule->rejected = 1;
+            $rule->save();
+
           } else {
-            DB::update('update malware_rules set under_review = 0 where entity_id = :entity_id',
-              [ 'entity_id' => $rule->entity_id ]);
+		    $users = User::all()->where('admin',1);
+		    foreach ($users as $user) {
+		      Mail::to($user->email)->subject('New Rules Are Pending Approval')->send(new RuleReviewed);
+            }
+            $rule->under_review = 0;
+            $rule->save();
+
+
           }
-          //TODO: Send notification to admins
         }
     }
 }

@@ -24,8 +24,9 @@
 		    <div class="msc-block-info">
 			  <h3>Top Rule Contributors</h3>
 			  <ul>
-			  <li>Hulk Hogan - 100 Rules</li>
-			  <li>Mark Twain - 50 Rules</li>
+			  @foreach ($rules as $rule)
+			  <li>{{ $rule->name }} - {{ $rule->total }} Rules</li>
+			  @endforeach
 			  </ul>
             </div>
           </article>

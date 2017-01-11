@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Auth;
+use App\User;
 use Validator;
 use App\MalwareRules;
 use Illuminate\Support\Facades\DB;
@@ -38,6 +39,16 @@ class RulesController extends Controller
           }
         }
 
+        if (Auth::check()) {
+		  $user_id = Auth::user()->id;
+		  $user = User::find($user_id);
+		} else {
+		  $user_id = 0;
+		}
+		if ($user_id != 0) {
+		  $rule = "meta:\n".'author="'.$user->name.'"'."\n".$rule;
+		}
+
         if (!$validator->fails()) {
 
           $testrule = MalwareRules::all()->where('name', $request->name)->first();
@@ -52,12 +63,6 @@ class RulesController extends Controller
 		      $yaraerror = $result;
 
 		    } else {
-		      if (Auth::check()) {
-		        $user_id = Auth::user()->id;
-		      } else {
-		        $user_id = 0;
-		      }
-
 		      $newrule = new MalwareRules;
 
 		      $newrule->name = $request->name;
@@ -97,6 +102,20 @@ class RulesController extends Controller
       if (($admin) or (Auth::user()->id == $rule->contributor)) {
         return view('rule-edit', [ 'nav' => 'none' ] )->with('rule',$rule)->with('admin',$admin);
       }
+    }
+
+    public function home(Request $request)
+    {
+      $rules = MalwareRules::where('contributor', '>', 0)
+        ->where('active', '=', 1)
+        ->join('users', 'users.id', '=', 'malware_rules.contributor')
+        ->select('malware_rules.contributor','users.name', DB::raw('count(*) as total'))
+        ->groupBy('contributor','name')
+        ->orderBy('total','desc')
+        ->limit(10)
+        ->get();
+
+      return view('scanner', [ 'nav' => 'scanner' ] )->with('rules',$rules);
     }
 
 	public function save(Request $request) {
