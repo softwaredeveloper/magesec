@@ -93,6 +93,13 @@ class RulesController extends Controller
     public function edit(Request $request)
     {
       $rule = MalwareRules::find($request->entity_id);
+      if ($rule->approved_by > 0) {
+        $user = User::find($rule->approved_by);
+        $authorizedby = $user->name;
+      } else {
+        $authorizedby = 'No One';
+      }
+
       if (Auth::user()->admin == 1) {
         $admin = 1;
       } else {
@@ -100,7 +107,7 @@ class RulesController extends Controller
       }
 
       if (($admin) or (Auth::user()->id == $rule->contributor)) {
-        return view('rule-edit', [ 'nav' => 'none' ] )->with('rule',$rule)->with('admin',$admin);
+        return view('rule-edit', [ 'nav' => 'none', 'authorizedby' => $authorizedby ] )->with('rule',$rule)->with('admin',$admin);
       }
     }
 

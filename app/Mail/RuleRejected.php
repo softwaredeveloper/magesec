@@ -28,6 +28,6 @@ class RuleRejected extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.rejected');
+        return $this->view('emails.rejected')->subject('Malware Rule Rejected');
     }
 }

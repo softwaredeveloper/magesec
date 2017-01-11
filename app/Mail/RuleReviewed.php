@@ -6,6 +6,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use App\User;
 
 class RuleReviewed extends Mailable
 {
@@ -28,6 +29,6 @@ class RuleReviewed extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.reviewed');
+        return $this->view('emails.reviewed')->subject('New Rules Are Pending Approval');
     }
 }

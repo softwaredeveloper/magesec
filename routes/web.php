@@ -79,6 +79,8 @@ Route::get('/logout', 'HomeController@logout');
 
 Route::get('/home', 'HomeController@index');
 
+Route::post('/account-update', 'HomeController@update');
+
 Route::get('/rule-edit', 'RulesController@edit');
 
 Route::get('/rule-approve', 'RulesController@approve');

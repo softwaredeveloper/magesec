@@ -63,7 +63,7 @@ class RuleVerify extends Command
           } else {
 		    $users = User::all()->where('admin',1);
 		    foreach ($users as $user) {
-		      Mail::to($user->email)->subject('New Rules Are Pending Approval')->send(new RuleReviewed);
+		      Mail::to($user->email)->send(new RuleReviewed());
             }
             $rule->under_review = 0;
             $rule->save();

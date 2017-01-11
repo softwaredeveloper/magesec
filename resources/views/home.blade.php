@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+@include('account')
 <article class="msc-block">
 <h1 class="msc-block__title">
 Rules I've Submitted
@@ -8,12 +9,12 @@ Rules I've Submitted
 <div class="msc-block-info">
 <table width="100%" border="1">
 <tr>
-<td>Name</td>
-<td>Created</td>
-<td>Updated</td>
-<td>Type</td>
-<td>Status</td>
-<td>Actions</td>
+<td><strong>Name</strong></td>
+<td><strong>Created</strong></td>
+<td><strong>Updated</strong></td>
+<td><strong>Type</strong></td>
+<td><strong>Status</strong></td>
+<td><strong>Actions</strong></td>
 </tr>
 @foreach ($my_rules as $rule)
   <tr>

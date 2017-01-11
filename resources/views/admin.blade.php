@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+@include('account')
 <article class="msc-block">
 <h1 class="msc-block__title">
 Rules Pending Approval
@@ -8,10 +9,10 @@ Rules Pending Approval
 <div class="msc-block-info">
 <table width="100%" border="1">
 <tr>
-<td>Name</td>
-<td>Created</td>
-<td>Updated</td>
-<td>Actions</td>
+<td><strong>Name</strong></td>
+<td><strong>Created</strong></td>
+<td><strong>Updated</strong></td>
+<td><strong>Actions</strong></td>
 </tr>
 @foreach ($pending_rules as $rule)
   <tr>
@@ -33,16 +34,26 @@ All Rules
 <div class="msc-block-info">
 <table width="100%" border="1">
 <tr>
-<td>Name</td>
-<td>Created</td>
-<td>Updated</td>
-<td>Actions</td>
+<td><strong>Name</strong></td>
+<td><strong>Created</strong></td>
+<td><strong>Updated</strong></td>
+<td><strong>Status</strong></td>
+<td><strong>Actions</strong></td>
 </tr>
 @foreach ($all_rules as $rule)
   <tr>
   <td>{{ $rule->name }}</td>
   <td>{{ $rule->created_at }}</td>
   <td>{{ $rule->updated_at }}</td>
+  <td>
+    @if ($rule->rejected === 1)
+      Rejected
+    @elseif ($rule->active === 1)
+      Active
+    @else
+      Pending
+    @endif
+  </td>
   <td><a href="/rule-edit?entity_id={{ $rule->entity_id }}">Edit</a></td>
   </tr>
 @endforeach
