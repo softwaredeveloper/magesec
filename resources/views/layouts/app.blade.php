@@ -112,7 +112,7 @@
       <div class="col-md-12">
         <ul class="msc-list msc-list--inline">
           <li><a href="/contact">Contact</a></li>
-          <li><a href="/tos">TOS</a></li>
+          <li><a href="/tos">Terms of Service</a></li>
           <li><a href="/privacy">Privacy Policy</a></li>
         </ul>
         <p>Copyright &copy; @php print date('Y'); @endphp Mage Security Council. All Rights Reserved.</p>

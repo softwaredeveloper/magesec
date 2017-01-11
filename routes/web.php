@@ -63,6 +63,8 @@ Route::get('/contact', function () {
     return view('contact',[ 'nav' => 'none' ]);
 });
 
+Route::post('/contact-send', 'ContactController@send');
+
 Route::get('/tos', function () {
     return view('tos',[ 'nav' => 'none' ]);
 });
