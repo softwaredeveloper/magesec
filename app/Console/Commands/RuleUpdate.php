@@ -60,19 +60,39 @@ class RuleUpdate extends Command
           Artisan::call('rule:create', ['type' => 'grep-standard', 'timestamp' => $newtimestamp]);
           Artisan::call('rule:create', ['type' => 'grep-deep', 'timestamp' => $newtimestamp]);
 
-          $a = new PharData('public/download/rules-'.$newtimestamp.'.tar');
-          $a->addFile('public/download/yara-standard-'.$newtimestamp.'.yar');
-          $a->addFile('public/download/yara-deep-'.$newtimestamp.'.yar');
-          $a->addFile('public/download/grep-standard-'.$newtimestamp.'.txt');
-          $a->addFile('public/download/grep-deep-'.$newtimestamp.'.txt');
+          chdir('public/download/');
+
+          if (file_exists('yara-standard.yar')) {
+            unlink('yara-standard.yar');
+          }
+          if (file_exists('yara-deep.yar')) {
+            unlink('yara-deep.yar');
+          }
+          if (file_exists('grep-stanadard.txt')) {
+            unlink('grep-standard.txt');
+          }
+          if (file_exists('grep-deep.txt')) {
+            unlink('grep-deep.txt');
+          }
+
+          copy('yara-standard-'.$newtimestamp.'.yar','yara-standard.yar');
+          copy('yara-deep-'.$newtimestamp.'.yar','yara-deep.yar');
+          copy('grep-standard-'.$newtimestamp.'.txt','grep-standard.txt');
+          copy('grep-deep-'.$newtimestamp.'.txt','grep-deep.txt');
+
+          $a = new PharData('rules-'.$newtimestamp.'.tar');
+          $a->addFile('yara-standard.yar');
+          $a->addFile('yara-deep.yar');
+          $a->addFile('grep-standard.txt');
+          $a->addFile('grep-deep.txt');
 
           $a->compress(Phar::GZ);
 
-          unlink('public/download/rules-'.$newtimestamp.'.tar');
-          if (file_exists('public/download/rules-latest.tar.gz')) {
-            unlink('public/download/rules-latest.tar.gz');
+          unlink('rules-'.$newtimestamp.'.tar');
+          if (file_exists('rules-latest.tar.gz')) {
+            unlink('rules-latest.tar.gz');
           }
-          symlink(getcwd().'/public/download/rules-'.$newtimestamp.'.tar.gz','public/download/rules-latest.tar.gz');
+          symlink(getcwd().'/rules-'.$newtimestamp.'.tar.gz','rules-latest.tar.gz');
 
         }
     }

@@ -34,13 +34,13 @@ function showRule(){
 <p>Rules can be submitted two ways, by either a single matching string or as a yara formatted rule. You can submit rules anonymously or if logged into your account you will be listed as the author of the rule.</p>
 <p>Example string:
 <br/><br/>
-@${'yMk'}=$ {"_REQUEST"};
+{'yMk'}=$ {"_REQUEST"};
 </p>
 <br/>
 <p>Example Yara Rule:
 <br/>
 strings: <br/>
-$ = "@${'yMk'}=$ {\"_REQUEST\"};"<br/>
+$ = "{'yMk'}=$ {\"_REQUEST\"};"<br/>
 condition: any of them<br/><br/></p>
 <form name="rule" method="post" action="/scanner-rule-submit">
 <input type="hidden" name="_token" value="{{ csrf_token() }}">

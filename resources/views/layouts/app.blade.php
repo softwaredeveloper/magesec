@@ -6,6 +6,16 @@
   <title>Mage Security Council</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="css/styles.min.css">
+  <style>
+  .pagination {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+  }
+  .pagination li {
+      display: inline;
+  }
+  </style>
 </head>
 
 <body>

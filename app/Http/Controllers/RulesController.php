@@ -127,7 +127,7 @@ class RulesController extends Controller
 
 	public function save(Request $request) {
 		$validator = validator::make($request->all(), [
-	        'name' => 'required|regex:"^[A-Za-z][A-Za-z0-9_-]*$"|max:20',
+	        'name' => 'required|regex:"^[A-Za-z][A-Za-z0-9_-]*$"|max:50',
 	        'rule' => 'required',
 	        ]);
 
@@ -163,7 +163,7 @@ class RulesController extends Controller
 		    return redirect('/home');
 		  }
         } else {
-          return redirect('/rule-edit')->withErrors($validator)->withInput();
+          return redirect('/rule-edit?entity_id='.$request->entity_id)->withErrors($validator)->withInput();
         }
         if (isset($yaraerror)) {
           $validator->errors()->add('rule_invalid', $yaraerror);
