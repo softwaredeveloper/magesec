@@ -31,7 +31,7 @@
 			 <td width="200"><img src="images/magemojo-logo.png" /></td>
 			 <td valign="top">
 			   <h2>Magemojo</h2>
-			   <p>Desc</p>
+			   <p>Founded on 2009 by Eric Hileman and Martin Pachol. Magemojo was the first hosting company to provide support specifically for the Magento platform.</p>
 			 </td>
 			 </tr>
 			 </table>
