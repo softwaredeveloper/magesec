@@ -32,32 +32,54 @@ function showRule(){
 @endif
 
 <p>Rules can be submitted two ways, by either a single matching string or as a yara formatted rule. You can submit rules anonymously or if logged into your account you will be listed as the author of the rule.</p>
-<p>Example string:
-<br/><br/>
-{'yMk'}=$ {"_REQUEST"};
+<br/>
+<p><strong>Example string:</strong>
+<br/>
+<code>{'yMk'}=$ {"_REQUEST"};</code>
 </p>
 <br/>
-<p>Example Yara Rule:
+<p><strong>Example Yara Rule:</strong>
 <br/>
-strings: <br/>
+<code>strings: <br/>
 $ = "{'yMk'}=$ {\"_REQUEST\"};"<br/>
-condition: any of them<br/><br/></p>
+condition: any of them</code><br/><br/></p>
 <form name="rule" method="post" action="/scanner-rule-submit">
 <input type="hidden" name="_token" value="{{ csrf_token() }}">
-Rule Type:
+<table>
+<tr>
+<td width="100"><strong>Rule Type:</strong></td>
+<td>
 <input type="radio" name="ruletype" value="string" onClick="showString()"> String
 <input type="radio" name="ruletype" value="yararule" onClick="showRule()"> Yara Rule
-<br/>
-Rule Name: <input type="text" name="name" size="20" maxchar="20"/>
-<br/>
+</td>
+</tr>
+<tr>
+<td width="100"><strong>Rule Name:</strong></td>
+<td><input type="text" name="name" size="20" maxchar="50"/></td>
+</tr>
+</table>
 <div id="stringdiv" class="hide">
-String: <input type="text" name="string" size="50" maxchar="500"/>
+<table>
+<tr>
+<td width="100"><strong>String:</strong></td>
+<td><input type="text" name="string" size="50" maxchar="500"/></td>
+</tr>
+</table>
 </div>
 <div id="rulediv" class="hide">
-Rule:<textarea name="rule"></textarea>
+<table>
+<tr>
+<td width="100" valign="top"><strong>Rule:</strong></td>
+<td><textarea name="rule" cols="50" rows="6"></textarea></td>
+</tr>
+</table>
 </div>
-<br/>
-<input type="submit" value="Submit New Rule"/>
+<table>
+<tr>
+<td width="100"></td>
+<td><input type="submit" value="Submit New Rule"/></td>
+</tr>
+</table>
 </form>
 </div>
 </article>

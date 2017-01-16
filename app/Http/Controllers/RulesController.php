@@ -26,13 +26,13 @@ class RulesController extends Controller
         if (!$validator->fails()) {
           if ($request->ruletype == 'string') {
             $validator = validator::make($request->all(), [
-              'name' => 'required|regex:"^[A-Za-z][A-Za-z0-9_-]*$"|max:20',
+              'name' => 'required|regex:"^[A-Za-z][A-Za-z0-9_-]*$"|max:50',
               'string' => 'required|max:500',
             ]);
             $rule = 'strings: $="'.str_replace('"','\"',$request->string)."\"\ncondition:any of them";
           } else {
             $validator = validator::make($request->all(), [
-              'name' => 'required|regex:"^[A-Za-z][A-Za-z0-9_-]*$"|max:20',
+              'name' => 'required|regex:"^[A-Za-z][A-Za-z0-9_-]*$"|max:50',
               'rule' => 'required',
             ]);
             $rule = $request->rule;

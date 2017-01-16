@@ -17,15 +17,15 @@
           </article>
 	      <article class="msc-block">
 	        <div class="msc-block-info">
-			  <h3><a href="">Download latest Rules</a></h3>
+			  <h3><a href="http://magesec.org/download/rules-latest.tar.gz">Download latest Rules</a></h3>
             </div>
           </article>
 		  <article class="msc-block">
 		    <div class="msc-block-info">
-			  <h3>Top Rule Contributors</h3>
+			  <h3>Project Contributors</h3>
 			  <ul>
 			  @foreach ($rules as $rule)
-			  <li>{{ $rule->name }} - {{ $rule->total }} Rules</li>
+			  <li>{{ $rule->name }}</li>
 			  @endforeach
 			  </ul>
             </div>
