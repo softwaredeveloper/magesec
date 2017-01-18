@@ -29,7 +29,13 @@ Route::get('/scanner-whitelist', function () {
     return view('scanner-whitelist',[ 'nav' => 'scanner' ]);
 });
 
+Route::get('/scanner-thankyou', function () {
+    return view('scanner-thankyou',[ 'nav' => 'scanner' ]);
+});
+
 Route::post('/scanner-rule-submit', 'RulesController@create');
+
+Route::post('/scanner-whitelist-submit', 'WhitelistController@create');
 
 Route::get('/tools', function () {
     return view('tools',[ 'nav' => 'tools' ]);
@@ -86,3 +92,9 @@ Route::get('/rule-edit', 'RulesController@edit');
 Route::get('/rule-approve', 'RulesController@approve');
 
 Route::post('/rule-save', 'RulesController@save');
+
+Route::get('/whitelist-edit', 'WhitelistController@edit');
+
+Route::get('/whitelist-approve', 'WhitelistController@approve');
+
+Route::post('/whitelist-save', 'WhitelistController@save');

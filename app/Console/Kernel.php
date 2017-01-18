@@ -15,11 +15,13 @@ class Kernel extends ConsoleKernel
     protected $commands = [
         Commands\RuleVerify::class,
         Commands\RuleCreate::class,
-        Commands\RuleUpdate::class
+        Commands\RuleUpdate::class,
+        Commands\WhitelistCreate::class,
+        Commands\WhitelistVerify::class
     ];
 
     /**
-     * Define the application's command schedule.
+     * Define the applications command schedule.
      *
      * @param  \Illuminate\Console\Scheduling\Schedule  $schedule
      * @return void
@@ -28,6 +30,7 @@ class Kernel extends ConsoleKernel
     {
     	$schedule->command('rule:verify')->hourly();
     	$schedule->command('rule:update')->everyTenMinutes();
+    	$schedule->command('whitelist:verify')->hourly();
     }
 
     /**

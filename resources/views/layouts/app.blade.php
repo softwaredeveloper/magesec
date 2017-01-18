@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <title>Mage Security Council</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="icon" href="images/favicon.png" type="image/x-icon"><link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
   <link rel="stylesheet" href="css/styles.min.css">
   <style>
   .pagination {
@@ -67,7 +68,7 @@
                     <a class="dropdown-item" href="/scanner">Scanner Home</a>
                     <a class="dropdown-item" href="/scanner-instructions">Instructions</a>
                     <a class="dropdown-item" href="/scanner-rules">Contribute Rules</a>
-                    <!--<a class="dropdown-item" href="/scanner-whitelist">Contribute Whitelisting</a>//-->
+                    <a class="dropdown-item" href="/scanner-whitelist">Contribute Whitelisting</a>
                   </div>
                 </li>
                 @if ($nav === 'tools')

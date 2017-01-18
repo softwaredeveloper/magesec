@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 use App\MalwareRules;
+use App\Whitelist;
 use Artisan;
 use PharData;
 use Phar;
@@ -52,6 +53,11 @@ class RuleUpdate extends Command
 
         $latest = MalwareRules::where('active',1)->latest('updated_at')->first();
         $latestchange = strtotime($latest->updated_at);
+        $latest = Whitelist::where('active',1)->latest('updated_at')->first();
+        if (strtotime($latest->updated_at) > $latestchange) {
+          $latestchange = strtotime($latest->updated_at);
+        }
+
         if ($latestchange > $filetimestamp) {
           //Generate New Rules Files
           $newtimestamp = time();
@@ -59,6 +65,7 @@ class RuleUpdate extends Command
           Artisan::call('rule:create', ['type' => 'yara-deep', 'timestamp' => $newtimestamp]);
           Artisan::call('rule:create', ['type' => 'grep-standard', 'timestamp' => $newtimestamp]);
           Artisan::call('rule:create', ['type' => 'grep-deep', 'timestamp' => $newtimestamp]);
+          Artisan::call('whitelist:create', ['timestamp' => $newtimestamp]);
 
           chdir('public/download/');
 
@@ -74,17 +81,22 @@ class RuleUpdate extends Command
           if (file_exists('grep-deep.txt')) {
             unlink('grep-deep.txt');
           }
+          if (file_exists('whitelist.json')) {
+		    unlink('whitelist.json');
+          }
 
           copy('yara-standard-'.$newtimestamp.'.yar','yara-standard.yar');
           copy('yara-deep-'.$newtimestamp.'.yar','yara-deep.yar');
           copy('grep-standard-'.$newtimestamp.'.txt','grep-standard.txt');
           copy('grep-deep-'.$newtimestamp.'.txt','grep-deep.txt');
+          copy('whitelist-'.$newtimestamp.'.json','whitelist.json');
 
           $a = new PharData('rules-'.$newtimestamp.'.tar');
           $a->addFile('yara-standard.yar');
           $a->addFile('yara-deep.yar');
           $a->addFile('grep-standard.txt');
           $a->addFile('grep-deep.txt');
+          $a->addFile('whitelist.json');
 
           $a->compress(Phar::GZ);
 

@@ -26,7 +26,7 @@ function showRule(){
 <div class="msc-block-info">
 
 @if ($errors->any())
-        {{ implode('', $errors->all(':message')) }}
+        <span style="color:red">{{ implode('', $errors->all(':message')) }}</span>
         <br/>
         <br/>
 @endif
@@ -47,21 +47,25 @@ condition: any of them</code><br/><br/></p>
 <input type="hidden" name="_token" value="{{ csrf_token() }}">
 <table>
 <tr>
-<td width="100"><strong>Rule Type:</strong></td>
+<td width="100"><strong>Rule Type:<span style="color:red">*</span></strong></td>
 <td>
 <input type="radio" name="ruletype" value="string" onClick="showString()"> String
 <input type="radio" name="ruletype" value="yararule" onClick="showRule()"> Yara Rule
 </td>
 </tr>
 <tr>
-<td width="100"><strong>Rule Name:</strong></td>
+<td width="100"><strong>Rule Name:<span style="color:red">*</span></strong></td>
 <td><input type="text" name="name" size="20" maxchar="50"/></td>
+</tr>
+<tr>
+<td width="100"></td>
+<td style="padding-left: 12px; background: url(images/note.gif) left center no-repeat;"><span class="small">The rule name must only contain alphanumeric characters, underscores and dashes and cannot begin with a letter.</span></td>
 </tr>
 </table>
 <div id="stringdiv" class="hide">
 <table>
 <tr>
-<td width="100"><strong>String:</strong></td>
+<td width="100"><strong>String:<span style="color:red">*</span></strong></td>
 <td><input type="text" name="string" size="50" maxchar="500"/></td>
 </tr>
 </table>
@@ -69,7 +73,7 @@ condition: any of them</code><br/><br/></p>
 <div id="rulediv" class="hide">
 <table>
 <tr>
-<td width="100" valign="top"><strong>Rule:</strong></td>
+<td width="100" valign="top"><strong>Rule:<span style="color:red">*</span></strong></td>
 <td><textarea name="rule" cols="50" rows="6"></textarea></td>
 </tr>
 </table>
