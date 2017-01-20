@@ -66,12 +66,17 @@ class RuleCreate extends Command
 		    if (strpos($rule->rule,'any of them') > 0) {
 		      $split = explode("strings:",$rule->rule);
 			  $split = explode("condition:",$split[1]);
-              $set = trim($split[0]);
-              $set = str_replace('\"','||',$set);
-              $split = explode('"',$set);
-              foreach ($split as $string) {
-                if ((strlen(trim($string)) > 7) and (strpos($string,"\n") === false)) {
-                  array_push($contents,trim(str_replace('||','\"',$string)));
+			  $lines = explode("\n",$split[0]);
+              foreach ($lines as $line) {
+                $line = trim($line);
+                $split = explode('=',$line);
+                unset($split[0]);
+                $line = implode('=',$split);
+                $line = trim($line);
+                $line = trim($line,'"');
+                $line = trim($line,"'");
+                if (strlen($line) > 0) {
+                  array_push($contents,$line);
                 }
 			  }
 		    }
