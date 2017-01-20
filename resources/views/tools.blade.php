@@ -11,15 +11,15 @@
               <a href="/scanner">Site Malware Scanner</a>
             </h1>
             <div class="msc-block-info">
-            <p>A malware detection suite for Magento. Continually evolving to add in detection of the latest threats found in the Magento platform.</p>
+            <p>A server-side malware detection suite for Magento. Continually evolving to add in detection of the latest threats found in the Magento platform.</p>
             </div>
           </article>
           <article class="msc-block msc-slider">
             <h1 class="msc-block__title">
-              <a href="http://magereport.com" target="blank">Magereport<a>
+              <a href="https://www.magereport.com" target="blank">Magereport<a>
             </h1>
             <div class="msc-block-info">
-            <p>Desc</p>
+            <p>MageReport checks your Magento site for missing or incomplete patches, server misconfigurations and other vulnerabilities. MageReport has generated already more than 5 million reports, to help merchants and agencies improve the security of their e-commerce presence.</p>
             </div>
           </article>
           <article class="msc-block msc-slider">
