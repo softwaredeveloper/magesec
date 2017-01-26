@@ -90,7 +90,7 @@
                 @else
 				<li class="nav-item">
                 @endif
-                  <a class="nav-link" href="council">Security Council</a>
+                  <a class="nav-link" href="council">Council Members</a>
                 </li>
                 @if ($nav === 'about')
                 <li class="nav-item active">

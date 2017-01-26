@@ -65,6 +65,7 @@ class RuleUpdate extends Command
           Artisan::call('rule:create', ['type' => 'yara-deep', 'timestamp' => $newtimestamp]);
           Artisan::call('rule:create', ['type' => 'grep-standard', 'timestamp' => $newtimestamp]);
           Artisan::call('rule:create', ['type' => 'grep-deep', 'timestamp' => $newtimestamp]);
+          Artisan::call('rule:create', ['type' => 'modsecurity', 'timestamp' => $newtimestamp]);
           Artisan::call('whitelist:create', ['timestamp' => $newtimestamp]);
 
           chdir('public/download/');
@@ -84,12 +85,16 @@ class RuleUpdate extends Command
           if (file_exists('whitelist.json')) {
 		    unlink('whitelist.json');
           }
+          if (file_exists('whitelist.json')) {
+		    unlink('modescurity.conf');
+          }
 
           copy('yara-standard-'.$newtimestamp.'.yar','yara-standard.yar');
           copy('yara-deep-'.$newtimestamp.'.yar','yara-deep.yar');
           copy('grep-standard-'.$newtimestamp.'.txt','grep-standard.txt');
           copy('grep-deep-'.$newtimestamp.'.txt','grep-deep.txt');
           copy('whitelist-'.$newtimestamp.'.json','whitelist.json');
+          copy('modsecurity-'.$newtimestamp.'.conf','modsecurity.conf');
 
           $a = new PharData('rules-'.$newtimestamp.'.tar');
           $a->addFile('yara-standard.yar');

@@ -7,7 +7,6 @@
               <li><a href="/scanner">Site Malware Scanner</a></li>
               <li><a href="http://magereport.com/">Magereport</a></li>
               <li><a href="https://github.com/magesec/magesecuritypatcher">Magemojo Complete Patch</a></li>
-              <li><a href="https://github.com/netz98/n98-magerun" target="_blank">n98-magerun</a></li>
             </ul>
           </article>
           <article class="msc-block">
