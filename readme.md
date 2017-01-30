@@ -1,6 +1,6 @@
 # Magesec
 
-This is the app & site content for www.magesec.net
+This is the app & site content for magesec.org
 
 # Dev Install 
 
