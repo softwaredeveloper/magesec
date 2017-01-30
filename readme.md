@@ -18,6 +18,9 @@ php artisan key:create
 php artisan serve -vvv
 ```
 
+# macos sierra w/valet
+Connection refused errors (Caddy not running): https://www.reddit.com/r/laravel/comments/53stwu/fix_laravel_valet_on_macos_sierra/
+
 # Content editing 
 
 All static content is stored under [resources/views/*.blade.php](resources/views). 
