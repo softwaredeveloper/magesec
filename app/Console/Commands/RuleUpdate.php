@@ -66,6 +66,7 @@ class RuleUpdate extends Command
           Artisan::call('rule:create', ['type' => 'grep-standard', 'timestamp' => $newtimestamp]);
           Artisan::call('rule:create', ['type' => 'grep-deep', 'timestamp' => $newtimestamp]);
           Artisan::call('rule:create', ['type' => 'modsecurity', 'timestamp' => $newtimestamp]);
+          Artisan::call('rule:create', ['type' => 'vulnerability', 'timestamp' => $newtimestamp]);
           Artisan::call('whitelist:create', ['timestamp' => $newtimestamp]);
 
           chdir('public/download/');
@@ -88,6 +89,9 @@ class RuleUpdate extends Command
           if (file_exists('whitelist.json')) {
 		    unlink('modescurity.conf');
           }
+          if (file_exists('whitelist.json')) {
+		    unlink('vulnerability.yar');
+          }
 
           copy('yara-standard-'.$newtimestamp.'.yar','yara-standard.yar');
           copy('yara-deep-'.$newtimestamp.'.yar','yara-deep.yar');
@@ -95,6 +99,7 @@ class RuleUpdate extends Command
           copy('grep-deep-'.$newtimestamp.'.txt','grep-deep.txt');
           copy('whitelist-'.$newtimestamp.'.json','whitelist.json');
           copy('modsecurity-'.$newtimestamp.'.conf','modsecurity.conf');
+          copy('vulnerability-'.$newtimestamp.'.yar','vulnerability.yar');
 
           $a = new PharData('rules-'.$newtimestamp.'.tar');
           $a->addFile('yara-standard.yar');
@@ -102,6 +107,7 @@ class RuleUpdate extends Command
           $a->addFile('grep-standard.txt');
           $a->addFile('grep-deep.txt');
           $a->addFile('whitelist.json');
+          $a->addFile('vulnerability.yar');
 
           $a->compress(Phar::GZ);
 
