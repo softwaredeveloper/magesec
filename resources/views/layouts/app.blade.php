@@ -8,14 +8,14 @@
   <link rel="icon" href="images/favicon.png" type="image/x-icon"><link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
   <link rel="stylesheet" href="css/styles.min.css">
   <style>
-  .pagination {
+    .pagination {
       list-style-type: none;
       margin: 0;
       padding: 0;
-  }
-  .pagination li {
+    }
+    .pagination li {
       display: inline;
-  }
+    }
   </style>
 </head>
 
@@ -31,10 +31,10 @@
               <ul class="nav navbar-nav msc-nav-list msc-nav-uset float-xs-right">
                 @if (Auth::check())
                 <li class="nav-item">
-				  <a class="nav-link" href="/home">Account</a>
+                  <a class="nav-link" href="/home">Account</a>
                 </li>
                 <li class="nav-item">
-				  <a class="nav-link" href="/logout">Logout</a>
+                  <a class="nav-link" href="/logout">Logout</a>
                 </li>
                 @else
                 <li class="nav-item">
@@ -48,98 +48,98 @@
               <ul class="nav navbar-nav msc-nav-list float-xs-right">
                 @php
                 if (!isset($nav)) {
-                  $nav = 'none';
-                }
-                @endphp
-                @if ($nav === 'index')
-                <li class="nav-item active">
+                $nav = 'none';
+              }
+              @endphp
+              @if ($nav === 'index')
+              <li class="nav-item active">
                 @else
                 <li class="nav-item">
-                @endif
+                  @endif
                   <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
                 </li>
                 @if ($nav === 'scanner')
                 <li class="nav-item active">
-                @else
-				<li class="nav-item">
-                @endif
-                <a class="nav-link dropdown-toggle" href="./page.html" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Site Scanner</a>
-                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="/scanner">Scanner Home</a>
-                    <a class="dropdown-item" href="/scanner-instructions">Instructions</a>
-                    <a class="dropdown-item" href="/scanner-rules">Contribute Rules</a>
-                    <a class="dropdown-item" href="/scanner-whitelist">Contribute Whitelisting</a>
+                  @else
+                  <li class="nav-item">
+                    @endif
+                    <a class="nav-link dropdown-toggle" href="./page.html" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Site Scanner</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                      <a class="dropdown-item" href="/scanner">Scanner Home</a>
+                      <a class="dropdown-item" href="/scanner-instructions">Instructions</a>
+                      <a class="dropdown-item" href="/scanner-rules">Contribute Rules</a>
+                      <a class="dropdown-item" href="/scanner-whitelist">Contribute Whitelisting</a>
+                    </div>
+                  </li>
+                  @if ($nav === 'tools')
+                  <li class="nav-item active">
+                    @else
+                    <li class="nav-item">
+                      @endif
+                      <a class="nav-link" href="/tools">Tools</a>
+                    </li>
+                    @if ($nav === 'practices')
+                    <li class="nav-item active">
+                      @else
+                      <li class="nav-item">
+                        @endif
+                        <a class="nav-link" href="/best-practices">Best Practices</a>
+                      </li>
+                      @if ($nav === 'council')
+                      <li class="nav-item active">
+                        @else
+                        <li class="nav-item">
+                          @endif
+                          <a class="nav-link" href="council">Council Members</a>
+                        </li>
+                        @if ($nav === 'about')
+                        <li class="nav-item active">
+                          @else
+                          <li class="nav-item">
+                            @endif
+                            <a class="nav-link" href="/about">About</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </nav> <!-- /navbar -->
                   </div>
-                </li>
-                @if ($nav === 'tools')
-                <li class="nav-item active">
-                @else
-				<li class="nav-item">
-                @endif
-                  <a class="nav-link" href="/tools">Tools</a>
-                </li>
-                @if ($nav === 'practices')
-                <li class="nav-item active">
-                @else
-				<li class="nav-item">
-                @endif
-                  <a class="nav-link" href="/best-practices">Best Practices</a>
-                </li>
-                @if ($nav === 'council')
-                <li class="nav-item active">
-                @else
-				<li class="nav-item">
-                @endif
-                  <a class="nav-link" href="council">Council Members</a>
-                </li>
-                @if ($nav === 'about')
-                <li class="nav-item active">
-                @else
-				<li class="nav-item">
-                @endif
-                  <a class="nav-link" href="/about">About</a>
-                </li>
-              </ul>
+                </div>
+              </div>
+            </header> <!-- Header -->
+            <main class="msc-content">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-8">
+                    <div class="msc-content__left">
+                     @yield('content')
+                   </div>
+                 </div>
+                 @include('sidebar')
+               </div>
+             </div>
+           </main>
+           <footer class="msc-foot">
+            <div class="container">
+              <div class="col-md-12">
+                <ul class="msc-list msc-list--inline">
+                  <li><a href="/contact">Contact</a></li>
+                  <li><a href="/tos">Terms of Service</a></li>
+                  <li><a href="/privacy">Privacy Policy</a></li>
+                </ul>
+                <p>Copyright &copy; @php print date('Y'); @endphp Mage Security Council. All Rights Reserved.</p>
+              </div>
             </div>
-          </nav> <!-- /navbar -->
-        </div>
-      </div>
-    </div>
-  </header> <!-- Header -->
-    <main class="msc-content">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-8 msc-content__left">
-
-           @yield('content')
-
-          </div>
-          @include('sidebar')
-        </div>
-      </div>
-  </main>
-  <footer class="msc-foot">
-    <div class="container">
-      <div class="col-md-12">
-        <ul class="msc-list msc-list--inline">
-          <li><a href="/contact">Contact</a></li>
-          <li><a href="/tos">Terms of Service</a></li>
-          <li><a href="/privacy">Privacy Policy</a></li>
-        </ul>
-        <p>Copyright &copy; @php print date('Y'); @endphp Mage Security Council. All Rights Reserved.</p>
-      </div>
-    </div>
-  </footer>
+          </footer>
   <!--
   -- Localizing the resources --
   <script src="js/jquery-1.12.4.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
-  -->
-  <script
-  src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js" integrity="sha384-BLiI7JTZm+JWlgKa0M0kGRpJbF2J8q+qreVrKBC47e3K6BW78kGLrCkeRX6I9RoK" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/flexslider/2.6.3/jquery.flexslider-min.js"></script>
-  <script src="js/main.js"></script>
+-->
+<script
+src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js" integrity="sha384-BLiI7JTZm+JWlgKa0M0kGRpJbF2J8q+qreVrKBC47e3K6BW78kGLrCkeRX6I9RoK" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flexslider/2.6.3/jquery.flexslider-min.js"></script>
+<script src="js/main.js"></script>
 
 </body>
 
