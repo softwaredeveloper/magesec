@@ -83,7 +83,7 @@ Auth::routes();
 
 Route::get('/logout', 'HomeController@logout');
 
-Route::get('/home', 'HomeController@index');
+Route::match(array('GET', 'POST'),'/home', 'HomeController@index');
 
 Route::post('/account-update', 'HomeController@update');
 
