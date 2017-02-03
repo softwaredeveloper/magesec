@@ -63,7 +63,7 @@
                   @else
                   <li class="nav-item">
                     @endif
-                    <a class="nav-link dropdown-toggle" href="./page.html" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Site Scanner</a>
+                    <a class="nav-link dropdown-toggle" href="./page.html" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Malware Scanner</a>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                       <a class="dropdown-item" href="/scanner">Scanner Home</a>
                       <a class="dropdown-item" href="/scanner-instructions">Instructions</a>
