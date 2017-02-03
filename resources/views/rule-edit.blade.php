@@ -47,6 +47,7 @@
   <td>
   <input type="radio" name="type" value="STANDARD" @if ($rule->type === 'STANDARD') checked @endif> Standard
   <input type="radio" name="type" value="DEEP" @if ($rule->type === 'DEEP') checked @endif> Deep
+  <input type="radio" name="type" value="VULNERABILITY" @if ($rule->type === 'VULNERABILITY') checked @endif> Vulnerability
   </td>
   </tr>
 @endif

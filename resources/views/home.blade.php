@@ -33,6 +33,7 @@ Rules I've Submitted
   </tr>
 @endforeach
 </table>
+{{ $my_rules->render() }}
 </div>
 </article>
 <article class="msc-block">
@@ -60,10 +61,11 @@ Whitelist Rules I've Submitted
   @else
     <td>Under Review</td>
   @endif
-  <td><a href="/whitelist-edit?entity_id={{ $rule->entity_id }}">Edit</a></td>
+  <td><a href="/whitelist-edit?entity_id={{ $whitelist->entity_id }}">Edit</a></td>
   </tr>
 @endforeach
 </table>
+{{ $my_whitelist->render() }}
 </div>
 </article>
 @endsection

@@ -118,6 +118,7 @@ Tips to protect Magmi:</p>
     <li>Keep your antivirus software up to date, and use a malware scanner. Do not install any unknown programs, or click suspicious links.</li>
     <li>Use a strong password to log into the computer, and change it periodically. Use a password manager to create and manage secure, unique passwords.</li>
     <li>Do not save FTP passwords in FTP programs, because they are often harvested by malware and used to infect servers.</li>
+    <li>Have an <a href="https://github.com/talesh/response" target="_blank">incident response plan</a>.</li>
 </ul></p>
             </div>
           </article>

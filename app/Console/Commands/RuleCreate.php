@@ -45,14 +45,17 @@ class RuleCreate extends Command
 		  $rules = MalwareRules::all()->where('active',1)->where('type','STANDARD');
 		}
 		if (in_array($type,array('yara-deep','grep-deep','modsecurity'))) {
-		  $rules = MalwareRules::all()->where('active',1);
+		  $rules = MalwareRules::all()->where('active',1)->where('type', '!=', 'VULNERABILITY');
+		}
+		if (in_array($type,array('vulnerability'))) {
+		  $rules = MalwareRules::all()->where('active',1)->where('type', 'VULNERABILITY');
 		}
 		$contents = array();
-		if (in_array($type,array('yara-standard','yara-deep'))) {
+		if (in_array($type,array('yara-standard','yara-deep','vulnerability'))) {
           array_push($contents,'import "hash"');
 		}
 		foreach($rules as $rule) {
-		  if (in_array($type,array('yara-standard','yara-deep'))) {
+		  if (in_array($type,array('yara-standard','yara-deep','vulnerability'))) {
 		    $contributor = User::where('id', $rule->contributor)->first();
 		    array_push($contents,'rule '.$rule->name);
 		    array_push($contents,'{');
@@ -102,7 +105,7 @@ class RuleCreate extends Command
 		if (in_array($type,array('grep-standard','grep-deep'))) {
 		  $filename = 'public/download/'.$type.'-'.$timestamp.'.txt';
 		}
-		if (in_array($type,array('yara-standard','yara-deep'))) {
+		if (in_array($type,array('yara-standard','yara-deep','vulnerability'))) {
 		  $filename = 'public/download/'.$type.'-'.$timestamp.'.yar';
 		}
 

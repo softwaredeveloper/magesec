@@ -27,19 +27,44 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         if (Auth::user()->admin == 1) {
+          $filename = 'NO_MATCH';
+          $hash = 'NO_MATCH';
+          if (isset($request->file)) {
+            if ($request->file != '') {
+              $filename = '%'.$request->file.'%';
+            }
+          }
+          if (isset($request->hash)) {
+		    if ($request->hash != '') {
+		      $hash = $request->hash;
+		    }
+          }
+          if (isset($request->rulename)) {
+		    if ($request->rulename != '') {
+		      $rulename = '%'.$request->rulename.'%';
+		    }
+          }
+          if (isset($rulename)) {
+            $rules = MalwareRules::where('name','like',$rulename)->paginate(10);
+          } else {
+            $rules = MalwareRules::paginate(10);
+          }
+          $whitelist_pending = Whitelist::where('under_review', 0)->where('approved_by', 0)->where('rejected', 0)->paginate(10);
+          $whitelist = Whitelist::where('hash', '=', $hash)->orwhere('filepath', 'like', $filename)->paginate(10);
+
           return view('admin', [ 'nav' => 'none' ] )
             ->with('pending_rules', MalwareRules::all()->where('under_review', 0)->where('approved_by',0)->where('rejected',0))
-            ->with('all_rules', MalwareRules::paginate(10))
-            ->with('pending_whitelist', Whitelist::all()->where('under_review', 0)->where('approved_by',0)->where('rejected',0))
-            ->with('all_whitelist', Whitelist::paginate(10))
+            ->with('all_rules', $rules)
+            ->with('pending_whitelist', $whitelist_pending)
+            ->with('whitelist',$whitelist)
           ;
         } else {
           return view('home', [ 'nav' => 'none' ] )
-            ->with('my_rules', MalwareRules::all()->where('contributor', Auth::user()->id))
-            ->with('my_whitelist', Whitelist::all()->where('contributor', Auth::user()->id))
+            ->with('my_rules', MalwareRules::where('contributor', Auth::user()->id)->paginate(10))
+            ->with('my_whitelist', Whitelist::where('contributor', Auth::user()->id)->paginate(10))
           ;
         }
     }

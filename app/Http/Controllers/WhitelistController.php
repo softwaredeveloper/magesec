@@ -18,7 +18,7 @@ class WhitelistController extends Controller
 		        'application' => 'required|max:50',
 		        'version' => 'required|max:20',
 		        'filepath' => 'required|max:500',
-		        'filesize' => 'required|numeric|max:20',
+		        'filesize' => 'required|numeric',
 		        'hash' => 'required|alpha_num|max:50',
 		        'justification' => 'required|max:2000',
         ]);
