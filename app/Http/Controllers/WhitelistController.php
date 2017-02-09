@@ -32,7 +32,7 @@ class WhitelistController extends Controller
 
         if (!$validator->fails()) {
 
-          $testrule = Whitelist::where('hash', $request->hash)->orwhere('filepath', $request->filepath)->first();
+          $testrule = Whitelist::where('hash', $request->hash)->where('filepath', $request->filepath)->first();
           if (count($testrule) > 0) {
             $validator->errors()->add('duplicate_whitelist', 'A Duplicate Rule Already Exists.');
             return redirect('/scanner-whitelist')->withErrors($validator)->withInput();
@@ -108,7 +108,7 @@ class WhitelistController extends Controller
 		        'application' => 'required|max:50',
 		        'version' => 'required|max:20',
 		        'filepath' => 'required|max:500',
-		        'filesize' => 'required|numeric|max:20',
+		        'filesize' => 'required|numeric',
 		        'hash' => 'required|alpha_num|max:50',
 		        'justification' => 'required|max:2000',
         ]);

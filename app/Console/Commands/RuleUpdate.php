@@ -8,6 +8,10 @@ use App\Whitelist;
 use Artisan;
 use PharData;
 use Phar;
+use Mail;
+use App\Mail\ModsecurityFailed;
+use Illuminate\Mail\Mailer;
+use Illuminate\Mail\MailableMailer;
 
 class RuleUpdate extends Command
 {
@@ -86,19 +90,31 @@ class RuleUpdate extends Command
           if (file_exists('whitelist.json')) {
 		    unlink('whitelist.json');
           }
-          if (file_exists('whitelist.json')) {
-		    unlink('modescurity.conf');
-          }
-          if (file_exists('whitelist.json')) {
+          if (file_exists('vulnerability.yar')) {
 		    unlink('vulnerability.yar');
           }
+          if (file_exists('modsecurity-check.conf')) {
+		    unlink('modsecurity-check.conf');
+          }
+
+	 	  #verify modsecurity rules are valid
+	      symlink(getcwd().'/modsecurity-'.$newtimestamp.'.conf','modsecurity-check.conf');
+	      $test = exec('/usr/sbin/nginx -t -c dummy-nginx.conf 2>&1');
+          if (strpos($test,'test is successful') > -1) {
+	        if (file_exists('modescurity.conf')) {
+		      unlink('modescurity.conf');
+            }
+            copy('modsecurity-'.$newtimestamp.'.conf','modsecurity.conf');
+          } else {
+			Mail::to('martin@magemojo.com')->send(new ModsecurityFailed($test));
+          }
+
 
           copy('yara-standard-'.$newtimestamp.'.yar','yara-standard.yar');
           copy('yara-deep-'.$newtimestamp.'.yar','yara-deep.yar');
           copy('grep-standard-'.$newtimestamp.'.txt','grep-standard.txt');
           copy('grep-deep-'.$newtimestamp.'.txt','grep-deep.txt');
           copy('whitelist-'.$newtimestamp.'.json','whitelist.json');
-          copy('modsecurity-'.$newtimestamp.'.conf','modsecurity.conf');
           copy('vulnerability-'.$newtimestamp.'.yar','vulnerability.yar');
 
           $a = new PharData('rules-'.$newtimestamp.'.tar');
