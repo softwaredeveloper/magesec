@@ -1,6 +1,6 @@
 # Magesec
 
-This is the app & site content for www.magesec.net
+This is the app & site content for magesec.org
 
 # Dev Install 
 
@@ -17,6 +17,9 @@ php artisan key:create
 
 php artisan serve -vvv
 ```
+
+# macos sierra w/valet
+Connection refused errors (Caddy not running): https://www.reddit.com/r/laravel/comments/53stwu/fix_laravel_valet_on_macos_sierra/
 
 # Content editing 
 

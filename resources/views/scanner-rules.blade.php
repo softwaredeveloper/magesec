@@ -1,90 +1,93 @@
 @extends('layouts.app')
 
 @section('content')
-<style>
-.hide {
-  display: none;
-}
-</style>
 <script language="javascript">
-<!--
-function showString(){
-  document.getElementById('rulediv').style.display = 'none';
-  document.getElementById('stringdiv').style.display = 'block';
-}
-function showRule(){
-  document.getElementById('rulediv').style.display = 'block';
-  document.getElementById('stringdiv').style.display = 'none';
-}
+  <!--
+  function showString(){
+    document.getElementById('rulediv').style.display = 'none';
+    document.getElementById('stringdiv').style.display = 'block';
+  }
+  function showRule(){
+    document.getElementById('rulediv').style.display = 'block';
+    document.getElementById('stringdiv').style.display = 'none';
+  }
 //-->
 </script>
-          <article class="msc-block msc-slider">
-            <h1 class="msc-block__title">
-              Contribute Rules
-            </h1>
-
-<div class="msc-block-info">
-
-@if ($errors->any())
-        <span style="color:red">{{ implode('', $errors->all(':message')) }}</span>
-        <br/>
-        <br/>
-@endif
-
-<p>Rules can be submitted two ways, by either a single matching string or as a yara formatted rule. You can submit rules anonymously or if logged into your account you will be listed as the author of the rule.</p>
-<br/>
-<p><strong>Example string:</strong>
-<br/>
-<code>{'yMk'}=$ {"_REQUEST"};</code>
-</p>
-<br/>
-<p><strong>Example Yara Rule:</strong>
-<br/>
-<code>strings: <br/>
-$ = "{'yMk'}=$ {\"_REQUEST\"};"<br/>
-condition: any of them</code><br/><br/></p>
-<form name="rule" method="post" action="/scanner-rule-submit">
-<input type="hidden" name="_token" value="{{ csrf_token() }}">
-<table>
-<tr>
-<td width="100"><strong>Rule Type:<span style="color:red">*</span></strong></td>
-<td>
-<input type="radio" name="ruletype" value="string" onClick="showString()"> String
-<input type="radio" name="ruletype" value="yararule" onClick="showRule()"> Yara Rule
-</td>
-</tr>
-<tr>
-<td width="100"><strong>Rule Name:<span style="color:red">*</span></strong></td>
-<td><input type="text" name="name" size="20" maxchar="50"/></td>
-</tr>
-<tr>
-<td width="100"></td>
-<td style="padding-left: 12px; background: url(images/note.gif) left center no-repeat;"><span class="small">The rule name must only contain alphanumeric characters, underscores and dashes and cannot begin with a letter.</span></td>
-</tr>
-</table>
-<div id="stringdiv" class="hide">
-<table>
-<tr>
-<td width="100"><strong>String:<span style="color:red">*</span></strong></td>
-<td><input type="text" name="string" size="50" maxchar="500"/></td>
-</tr>
-</table>
-</div>
-<div id="rulediv" class="hide">
-<table>
-<tr>
-<td width="100" valign="top"><strong>Rule:<span style="color:red">*</span></strong></td>
-<td><textarea name="rule" cols="50" rows="6"></textarea></td>
-</tr>
-</table>
-</div>
-<table>
-<tr>
-<td width="100"></td>
-<td><input type="submit" value="Submit New Rule"/></td>
-</tr>
-</table>
-</form>
-</div>
-</article>
-@endsection
+<article class="msc-block msc-slider">
+  <h1 class="msc-block__title">
+    Contribute Rules
+  </h1>
+  <div>
+    @if ($errors->any())
+    <span style="color:red">{{ implode('', $errors->all(':message')) }}</span>
+    <br/>
+    <br/>
+    @endif
+    <p>Rules can be submitted two ways, by either a single matching string or as a yara formatted rule. You can submit rules anonymously or if logged into your account you will be listed as the author of the rule.</p>
+    <br/>
+    <p><strong>Example string:</strong>
+      <br/>
+      <code>{'yMk'}=$ {"_REQUEST"};</code>
+    </p>
+    <br/>
+    <p><strong>Example Yara Rule:</strong>
+      <br/>
+      <code>strings: <br/>
+        $ = "{'yMk'}=$ {\"_REQUEST\"};"<br/>
+        condition: any of them</code><br/><br/></p>
+        <form name="rule" method="post" action="/scanner-rule-submit" class="msc-rule">
+          <input type="hidden" name="_token" value="{{ csrf_token() }}">
+          
+          <div class="form-group row">
+            <label class="col-sm-3 col-form-label"><strong>Rule Type:<span style="color:red">*</span></strong></label>
+            <div class="col-sm-9 radio-group">
+              <div class="form-check form-check-inline">
+                <label class="form-check-label">
+                  <input type="radio" class="form-check-input" name="ruletype" value="string" onClick="showString()"> String
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <label class="form-check-label">
+                  <input type="radio" class="form-check-input" name="ruletype" value="yararule" onClick="showRule()"> Yara Rule
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputPassword" class="col-sm-3 col-form-label">
+              <strong>Rule Name:<span style="color:red">*</span></strong>
+            </label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control"  name="name" size="20" maxchar="50"/>
+              <small class="form-text text-muted">The rule name must only contain alphanumeric characters, underscores and dashes and cannot begin with a letter.</small>
+            </div>
+          </div>
+          <div id="stringdiv" class="hide">
+            <div class="form-group row">
+              <label for="inputPassword" class="col-sm-3 col-form-label">
+                <strong>String:<span style="color:red">*</span></strong>
+              </label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" name="string" size="50" maxchar="500"/>
+              </div>
+            </div>
+          </div>
+          <div id="rulediv" class="hide">
+            <div class="form-group row">
+              <label for="inputPassword" class="col-sm-3 col-form-label">
+              <strong>Rule: <span style="color:red">*</span></strong>
+              </label>
+              <div class="col-sm-9">
+                <textarea class="form-control" name="rule" cols="50" rows="6"></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="offset-sm-3 col-sm-9">
+              <input type="submit" value="Submit New Rule" class="btn btn-primary"/>
+            </div>
+          </div>
+        </form>
+      </div>
+    </article>
+    @endsection
