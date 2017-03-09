@@ -83,7 +83,12 @@
                       @else
                       <li class="nav-item">
                         @endif
-                        <a class="nav-link" href="/best-practices">Best Practices</a>
+                        <a class="nav-link dropdown-toggle" href="/best-practices" id="best-practices" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Best Practices</a>
+                    <div class="dropdown-menu" aria-labelledby="best-practices">
+                      <a class="dropdown-item" href="#">Hosting Providers</a>
+                      <a class="dropdown-item" href="#">Agencies</a>
+                      <a class="dropdown-item" href="">Merchants</a>
+                    </div>
                       </li>
                       @if ($nav === 'council')
                       <li class="nav-item active">
