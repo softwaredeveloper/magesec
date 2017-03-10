@@ -223,8 +223,7 @@
 		</div>
 		<br/><br/>
 		<h2 class='blueText'><b>Contacting Us</b></h2>
-			If there are any questions regarding this privacy policy, you may contact us using the information below.<br/>
-			magesec.org1 (800) 217-8142
+			If there are any questions regarding this privacy policy, you may <a href="/contact">contact us here</a>.
 		</div>
 
 

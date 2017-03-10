@@ -63,9 +63,9 @@
                   @else
                   <li class="nav-item">
                     @endif
-                    <a class="nav-link dropdown-toggle" href="./page.html" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Malware Scanner</a>
+                    <a class="nav-link dropdown-toggle" href="./page.html" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Mage Malware Scanner</a>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                      <a class="dropdown-item" href="/scanner">Scanner Home</a>
+                      <a class="dropdown-item" href="/scanner">About</a>
                       <a class="dropdown-item" href="/scanner-instructions">Instructions</a>
                       <a class="dropdown-item" href="/scanner-rules">Contribute Rules</a>
                       <a class="dropdown-item" href="/scanner-whitelist">Contribute Whitelisting</a>
@@ -85,9 +85,9 @@
                         @endif
                         <a class="nav-link dropdown-toggle" href="/best-practices" id="best-practices" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Best Practices</a>
                     <div class="dropdown-menu" aria-labelledby="best-practices">
-                      <a class="dropdown-item" href="#">Hosting Providers</a>
-                      <a class="dropdown-item" href="#">Agencies</a>
-                      <a class="dropdown-item" href="">Merchants</a>
+                      <a class="dropdown-item" href="/best-practices-hosting">Hosting Providers</a>
+                      <a class="dropdown-item" href="/best-practices-developers">Developers</a>
+                      <a class="dropdown-item" href="/best-practices-merchants">Merchants</a>
                     </div>
                       </li>
                       @if ($nav === 'council')

@@ -5,9 +5,9 @@
                 Magento Security Tools
               </h1>
               <ul class="msc-list">
-                <li><a href="/scanner">Site Malware Scanner</a></li>
-                <li><a href="http://magereport.com/">Magereport</a></li>
-                <li><a href="https://github.com/magesec/magesecuritypatcher">Magemojo Complete Patch</a></li>
+                <li><a href="/scanner">Mage Malware Scanner</a></li>
+                <li><a href="http://magereport.com/">Mage Report</a></li>
+                <li><a href="https://github.com/magesec/magesecuritypatcher">Mage Security Patcher</a></li>
               </ul>
             </article>
             <article class="msc-block">
