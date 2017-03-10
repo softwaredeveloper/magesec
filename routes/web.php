@@ -41,10 +41,6 @@ Route::get('/tools', function () {
     return view('tools',[ 'nav' => 'tools' ]);
 });
 
-Route::get('/best-practices', function () {
-    return view('best-practices',[ 'nav' => 'practices' ]);
-});
-
 Route::get('/best-practices-hosting', function () {
     return view('best-practices-hosting',[ 'nav' => 'practices' ]);
 });
@@ -54,7 +50,7 @@ Route::get('/best-practices-developers', function () {
 });
 
 Route::get('/best-practices-merchants', function () {
-    return view('best-practices',[ 'nav' => 'practices' ]);
+    return view('best-practices-merchants',[ 'nav' => 'practices' ]);
 });
 
 Route::get('/council', function () {
