@@ -45,7 +45,7 @@ sudo pip install --no-cache-dir --upgrade mwscan</code></pre></p>
 obfuscated_eval /path/to/magento/skin/backdoor1.php</code></pre></p>
 </p>
 <p>
-<p><h1 class="msc-block__title"><strong>Run Using Cron</strong></h1></p>
+<p><h1 class="msc-block__title"><strong>Run Automatically Using Cron</strong></h1></p>
 <p>It is recommended to follow the installation instructions above and then run nightly from cron. This will download the latest rules every night, run a scan on your Magento store and mail you if anything was found:</p>
 <p><pre class="prettyprint code"><code class="language-bash">cat &lt;&lt;EOM | sudo tee /etc/cron.d/mwscan
 
@@ -60,7 +60,7 @@ EOM
 </code></pre></p>
 </p>
 <p>
-<p><h1 class="msc-block__title"><strong>Run Using Advanced Cron</strong></h1></p>
+<p><h1 class="msc-block__title"><strong>Run Automatically Using Advanced Cron</strong></h1></p>
 <p>This cron will ensure only a single concurrent scan, will log timestamped new finds to /var/log/mwscan.log and mail them to the supplied address. Requires <code class="prettyprint">util-linux</code>, <code class="prettyprint">moreutils</code> and <code class="prettyprint">mailutils</code> on Ubuntu/Debian for <code class="prettyprint">flock</code>, <code class="prettyprint">ifne</code>, <code class="prettyprint">ts</code>, and <code class="prettyprint">mail</code>:</p>
 <p><pre class="prettyprint code"><code class="language-bash">MAILTO=you@yourdomain.com
 RULESURL=https://magesec.org/download/yara-standard.yar
