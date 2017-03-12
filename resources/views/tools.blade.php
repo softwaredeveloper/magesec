@@ -13,7 +13,7 @@
     <div class="msc-block-info">
       <p>MageReport checks your Magento site for missing or incomplete patches, server misconfigurations and other vulnerabilities. MageReport has generated already more than 5 million reports, to help merchants and agencies improve the security of their e-commerce presence.</p>
     </div>
-  </article>
+</article>
 <article class="msc-block">
   <h1 class="msc-block__title">
     <a href="/scanner">Mage Malware Scanner</a>
