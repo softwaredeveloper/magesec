@@ -12,7 +12,7 @@
 			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 				<span aria-hidden="true">&times;</span>
 			</button>
-			{{ implode('', $errors->all(':message')) }}
+			{!! implode('<br/>', $errors->all(':message')) !!}
 		</div>
 		@endif
 		<br/>

@@ -19,7 +19,7 @@
   </h1>
   <div>
     @if ($errors->any())
-    <span style="color:red">{{ implode('<br/>', $errors->all(':message')) }}</span>
+    <span style="color:red">{!! implode('<br/>', $errors->all(':message')) !!}</span>
     <br/>
     <br/>
     @endif
