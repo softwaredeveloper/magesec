@@ -12,7 +12,7 @@
 		<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 			<span aria-hidden="true">&times;</span>
 		</button>
-		<strong>{{ implode('<br/>', $errors->all(':message')) }}
+		<strong>{!! implode("<br/>", $errors->all(':message')) !!}</strong>
 		</div>
 		@endif
 		<p>While the malware scan rules are quite precise they will sometimes pick up legitimate coding projects. Typically these false positives are due to code that is obfuscated in the same way hackers oftern use. To submit a file that is getting a false positive fill out the form below for each file.</p><br/>
