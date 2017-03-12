@@ -6,11 +6,11 @@
 		Best Security Practices for Merchants
 	</h1>
 	<div class="msc-block">
-		<p>Get a Magento security review done</p>
+		<p>Get a Magento security review done.</p>
 		<p>Magento developers are not necessarily security experts. Yes, many of them are good at coding but only few know the intricacies of Magento site security. </p>
 		<p>This is why once (or perhaps, twice) a year, you should get your website analyzed for apparent loopholes and security shortcomings. </p>
 		<p>If properly done, these reviews help in further hardening of your Magento security measures.<br/>
-			Run <a href="https://www.magereport.com/" target="_blank">https://www.magereport.com/</a></p>			
+			You can check your store for missing patches at <a href="https://www.magereport.com/" target="_blank">https://www.magereport.com/</a></p>			
 			<ul class="msc-listing">
 				<li>Make sure that the computer that is used to access the Magento Admin is secure.</li>
 				<li>Keep your antivirus software up to date, and use a malware scanner. Do not install any unknown programs, or click suspicious links.</li>
