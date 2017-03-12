@@ -28,7 +28,7 @@
 		<div class="row">
 			<h2 class="col-md-2"><strong>What</strong></h2>
 			<div class="col-md-10">
-				<p>Members of the Council collaborate on mitigation research and produce practical security tools for the benefit of the community. Specific tasks</p>
+				<p>Members of the Council collaborate on mitigation research and produce practical security tools for the benefit of the community. Specific tasks include:</p>
 				<ul class="msc-listing">
 					<li>Educate the community on the relevance of security and best practices.</li>
 					<li>Empower merchants to improve the security of their store, by providing tools for front and back-end scanning</li>
