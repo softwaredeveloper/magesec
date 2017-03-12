@@ -35,8 +35,8 @@ table{
 }
 .msc-listing li{
 	background: url('../images/bullet.svg') no-repeat;
-	background-size: .5rem auto;
+	background-size: 1.1rem auto;;
 	background-position: 0px 6px;
-	padding-left: 1.3rem;
+	padding-left: 1.8rem;
 	margin-bottom:.6rem;
 }
