@@ -28,8 +28,8 @@
 			<img src="images/magemojo-logo.png" class="img-fluid" alt="magemojo" />
 		</div>
 		<div class="col-md-8 col-sm-12">
-			<h2><a href="https://www.magemojo.com">Magemojo</a></h2>
-			<p>Founded on 2009 by Eric Hileman and Martin Pachol. Magemojo was the first hosting company to provide support specifically for the Magento platform.</p>
+			<h2><a href="https://www.magemojo.com">MageMojo</a></h2>
+			<p>Founded on 2009 by Eric Hileman and Martin Pachol. MageMojo was the first hosting company to be created exclusively to host and support the Magento platform.</p>
 		</div>
 	</div>
 </article>

@@ -51,31 +51,32 @@
       <div class="form-group row">
         <label for="email" class="col-sm-3 col-form-label"><strong>E-Mail:</strong></label>
         <div class="col-sm-9">
-          <input type="text" class="form-control" name="email" size="30" maxchar="50" value="{{ Auth::user()->email }}">
+          <input type="text" class="form-control" id="email" name="email" size="30" maxchar="50" value="{{ Auth::user()->email }}">
         </div>
       </div>
       <div class="form-group row">
         <label for="name" class="col-sm-3 col-form-label"><strong>Name:</strong></label>
         <div class="col-sm-9">
-          <input type="text" class="form-control" name="name" size="30" maxchar="50" value="{{ Auth::user()->name }}">
+          <input type="text" class="form-control" id="name" name="name" size="30" maxchar="50" value="{{ Auth::user()->name }}">
         </div>
       </div>
       <div class="form-group row">
-        <label for="email" class="col-sm-3 col-form-label"><strong>New Password:</strong></label>
+      <label for="password" class="col-sm-3 col-form-label"><strong>New Password:</strong></label>
         <div class="col-sm-9">
-          <input class="form-control" type="password" name="password" size="30" maxchar="50" value="">
+          <input class="form-control" id="password" type="password" name="password" size="30" maxchar="50" value="">
         </div>
       </div>
       <div class="form-group row">
         <label for="password_confirmation" class="col-sm-3 col-form-label"><strong>Confirm Password:</strong></label>
         <div class="col-sm-9">
-          <input type="password" class="form-control" name="password_confirmation" size="30" maxchar="50" value="">
+          <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" size="30" maxchar="50" value="">
         </div>
       </div>
       <div class="form-group row">
         <div class="offset-sm-3 col-sm-9">
-          <input type="submit" class="btn btn-primary" value="Update Account">
           <a href="#" class="btn btn-secondary" onClick="showAccountInfo()">Cancel</a>
+          <input type="submit" class="btn btn-primary" value="Update Account">
+          
         </div>
       </div>
     </form>
