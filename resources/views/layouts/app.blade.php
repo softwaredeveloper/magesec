@@ -5,8 +5,8 @@
   <meta charset="UTF-8">
   <title>Mage Security Council</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="icon" href="images/favicon.png" type="image/x-icon"><link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
-  <link rel="stylesheet" href="css/styles.min.css">
+  <link rel="icon" href="/images/favicon.png" type="image/x-icon"><link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon">
+  <link rel="stylesheet" href="/css/styles.min.css">
   <style>
     .pagination {
       list-style-type: none;
@@ -25,7 +25,7 @@
       <div class="row">
         <div class="col-md-12">
           <nav class="navbar navbar-light msc-nav">
-            <a href="/" class="msc-logo"><img src="images/msc-logo.png" alt="msc-logo" class="msc-logo"></a>
+            <a href="/" class="msc-logo"><img src="/images/msc-logo.png" alt="msc-logo" class="msc-logo"></a>
             <button class="navbar-toggler hidden-md-up float-xs-right" type="button" data-toggle="collapse" data-target="#navbar-header" aria-controls="navbar-header" aria-expanded="false" aria-label="Toggle navigation"></button>
             <div class="collapse navbar-toggleable-xs msc-navbar" id="navbar-header">
               <ul class="nav navbar-nav msc-nav-list msc-nav-uset float-xs-right">
@@ -137,14 +137,14 @@
           </footer>
   <!--
   -- Localizing the resources --
-  <script src="js/jquery-1.12.4.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
+  <script src="/js/jquery-1.12.4.min.js"></script>
+  <script src="/js/bootstrap.min.js"></script>
 -->
 <script
 src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js" integrity="sha384-BLiI7JTZm+JWlgKa0M0kGRpJbF2J8q+qreVrKBC47e3K6BW78kGLrCkeRX6I9RoK" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flexslider/2.6.3/jquery.flexslider-min.js"></script>
-<script src="js/main.js"></script>
+<script src="/js/main.js"></script>
 
 </body>
 

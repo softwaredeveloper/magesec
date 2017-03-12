@@ -16,6 +16,8 @@ class ContactController extends Controller
     public function send(Request $request)
     {
       $validator = validator::make($request->all(), [
+           'name' => 'required|max:50',
+           'email' => 'required|email|max:80',
 	  	   'subject' => 'required|max:50',
 	  	   'body' => 'required',
 	     ]);
