@@ -50,7 +50,6 @@ obfuscated_eval /path/to/magento/skin/backdoor1.php</code></pre></p>
 <p><pre class="prettyprint code"><code class="language-bash">cat &lt;&lt;EOM | sudo tee /etc/cron.d/mwscan
 
 MAILTO=you@yourdomain.com
-
 RULESURL=https://magesec.org/download/yara-standard.yar
 RULEFILE=/var/cache/rules.yar
 MAGENTO=/path/to/magento
@@ -64,9 +63,16 @@ EOM
 <p><h1 class="msc-block__title"><strong>Run Using Advanced Cron</strong></h1></p>
 <p>This cron will ensure only a single concurrent scan, will log timestamped new finds to /var/log/mwscan.log and mail them to the supplied address. Requires <code class="prettyprint">util-linux</code>, <code class="prettyprint">moreutils</code> and <code class="prettyprint">mailutils</code> on Ubuntu/Debian for <code class="prettyprint">flock</code>, <code class="prettyprint">ifne</code>, <code class="prettyprint">ts</code>, and <code class="prettyprint">mail</code>:</p>
 <p><pre class="prettyprint code"><code class="language-bash">MAILTO=you@yourdomain.com
+RULESURL=https://magesec.org/download/yara-standard.yar
+RULEFILE=/var/cache/rules.yar
+MAGENTO=/var/www/magento
+MWSCAN=/usr/bin/mwscan
+MWSCANLOCK=~/.mwscan.lock
+MWSCANLOG=/var/log/mwscan.log
+MWSCANFROM=From: Malware Scanner <noreply@yoursite.com>
 PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 
-0 2 * * * root flock -n ~/.mwscan.lock mwscan --newonly --quiet /data/web | ts | tee -a /var/log/mwscan.log | ifne mail -s "Malware found at $(hostname)" -a 'From: Malware Scanner &lt;noreply@yoursite.com&gt;' $MAILTO</code></pre></p>
+0 2 * * * root /usr/bin/curl -s $RULESURL -o $RULEFILE && flock -n $MWSCANKLOCK $MWSCAN --newonly --quiet $MAGENTO | ts | tee -a $MWSCANLOG | ifne mail -s "Malware found at $(hostname)" -a $MWSCANFROM $MAILTO</code></pre></p>
 </p>
 <p><h1 class="msc-block__title"><strong>Troubleshooting</strong></h1></p>
 <p>When you receive the error <code class="prettyprint">pkg_resources.DistributionNotFound: requests</code> try to upgrade the <code class="prettyprint">request</code> package as follows:</p>
