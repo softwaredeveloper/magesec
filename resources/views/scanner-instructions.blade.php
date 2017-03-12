@@ -13,7 +13,7 @@
 <p>
 <p><h1 class="msc-block__title"><strong>Quickstart & Run Anywhere</strong></h1></p>
 <p><pre class="prettyprint code"><code class="language-bash">wget https://magesec.org/download/grep-standard.txt
-grep -Erlf mwscan.txt /path/to/magento</code></pre></p>
+grep -Erlf grep-standard.txt /path/to/magento</code></pre></p>
 </p>
 <p>
 <p><h1 class="msc-block__title"><strong>Install on Debian/Ubuntu</strong></h1></p>
