@@ -6,7 +6,6 @@
 		About
 	</h1>
 	<div class="msc-block">
-
 		<h2>Mission</h2>
 		<p>The Mage Security Council promotes and facilitates secure Magento stores globally.</p>
 
@@ -18,7 +17,7 @@
 
 		<h2>What</h2>
 		<p>Members of the Council collaborate on mitigation research and produce practical security tools for the benefit of the community. Specific tasks</p>
-		<ul>
+		<ul class="msc-listing">
 			<li>Educate the community on the relevance of security and best practices.</li>
 			<li>Empower merchants to improve the security of their store, by providing tools for front and back-end scanning</li>
 			<li>Maintain up to date malware signatures. Once new malware is conceived, it can be eradicated promptly.</li>

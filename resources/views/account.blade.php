@@ -25,7 +25,7 @@
   <br/>
   <br/>
   @endif
-  <div id="accountinfo" class="msc-account-info">
+  <div id="accountinfo" class="msc-account-info msc-account-info--readonly">
     <div class="form-group row">
       <label class="col-sm-3 col-form-label"><strong>Email:</strong></label>
       <div class="col-sm-9">
@@ -61,7 +61,7 @@
         </div>
       </div>
       <div class="form-group row">
-      <label for="password" class="col-sm-3 col-form-label"><strong>New Password:</strong></label>
+        <label for="password" class="col-sm-3 col-form-label"><strong>New Password:</strong></label>
         <div class="col-sm-9">
           <input class="form-control" id="password" type="password" name="password" size="30" maxchar="50" value="">
         </div>
