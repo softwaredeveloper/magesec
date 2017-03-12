@@ -70,8 +70,7 @@
             </span>
           </div>
         </div>
-      </div>
-      
+      </div>      
     </form>
     <div class="table-responsive">
       <table width="100%" border="1" class="table table-bordered table-hover">
