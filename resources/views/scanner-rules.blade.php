@@ -19,7 +19,7 @@
   </h1>
   <div>
     @if ($errors->any())
-    <span style="color:red">{{ implode('', $errors->all(':message')) }}</span>
+    <span style="color:red">{{ implode('<br/>', $errors->all(':message')) }}</span>
     <br/>
     <br/>
     @endif
@@ -37,7 +37,7 @@
         condition: any of them</code><br/><br/></p>
         <form name="rule" method="post" action="/scanner-rule-submit" class="msc-rule">
           <input type="hidden" name="_token" value="{{ csrf_token() }}">
-          
+
           <div class="form-group row">
             <label class="col-sm-3 col-form-label"><strong>Rule Type:<span style="color:red">*</span></strong></label>
             <div class="col-sm-9 radio-group">
