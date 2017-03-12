@@ -8,7 +8,7 @@
 </article>
 <article class="msc-block">
   <p>
-  <em>"Together we can combine our malware findings from the wild and share our knowledge with one another to defend and protect our fellow Magento community members." - Eric Hileman, CEO MageMojo</em>
+  <em>"Together we can combine our malware findings from the wild and share our knowledge with one another to defend and protect our fellow Magento community members."</em> - Eric Hileman, CEO MageMojo
   </p>
   <p>
   The Mage Malware Scanner project is based on Willem de Groot's local filesystem malware scanner. By working together with fellow council members, his scanner was extended to work in all environments, and auto update from a central repository of rules maintained here on the magesec.org website.
@@ -34,7 +34,7 @@
 </article>
 <article class="msc-block">
   <h2>Project Contributors</h2>
-  <ul>
+  <ul class="msc-listing">
    @foreach ($rules as $rule)
    <li>{{ $rule->name }}</li>
    @endforeach

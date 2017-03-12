@@ -18,5 +18,9 @@
                 <li><a href="https://magento.com/security">Magento Security Center</a></li>
               </ul>
             </article>
+            <article class="msc-block">
+              <p>
+                Follow us on twitter <em><a href="https://twitter.com/mage_sec">@mage_sec</a></em> for the latest Magento security news.
+            </article>            
           </div>          
         </div>
