@@ -12,12 +12,26 @@
 			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 				<span aria-hidden="true">&times;</span>
 			</button>
-			{{ implode('<br/>', $errors->all(':message')) }}
+			{{ implode('', $errors->all(':message')) }}
 		</div>
 		@endif
 		<br/>
 		<form name"contact" action="contact-send" method="post">
 			<input type="hidden" name="_token" value="{{ csrf_token() }}">
+
+			<div class="form-group row">
+				<label for="email" class="col-sm-3 col-form-label">Name</label>
+				<div class="col-sm-9">
+					<input type="text" name="name" size="30" maxchar="50" class="form-control">
+				</div>
+			</div>
+
+			<div class="form-group row">
+				<label for="email" class="col-sm-3 col-form-label">Email</label>
+				<div class="col-sm-9">
+					<input type="text" name="email" size="30" maxchar="80" class="form-control">
+				</div>
+			</div>
 
 			<div class="form-group row">
 				<label for="email" class="col-sm-3 col-form-label">Subject</label>
