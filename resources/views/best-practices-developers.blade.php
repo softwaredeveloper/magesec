@@ -75,7 +75,6 @@
           <a href="https://community.magento.com/" target="_blank">https://community.magento.com/</a>
         </li>
       </ul>
-
     </div>
   </article>
   @endsection

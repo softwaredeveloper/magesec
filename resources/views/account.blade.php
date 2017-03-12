@@ -75,8 +75,7 @@
       <div class="form-group row">
         <div class="offset-sm-3 col-sm-9">
           <a href="#" class="btn btn-secondary" onClick="showAccountInfo()">Cancel</a>
-          <input type="submit" class="btn btn-primary" value="Update Account">
-          
+          <input type="submit" class="btn btn-primary" value="Update Account">          
         </div>
       </div>
     </form>

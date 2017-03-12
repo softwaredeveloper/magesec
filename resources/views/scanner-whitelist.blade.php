@@ -15,11 +15,9 @@
 		<strong>{{ implode('', $errors->all(':message')) }}
 		</div>
 		@endif
-
 		<p>While the malware scan rules are quite precise they will sometimes pick up legitimate coding projects. Typically these false positives are due to code that is obfuscated in the same way hackers oftern use. To submit a file that is getting a false positive fill out the form below for each file.</p><br/>
 		<form name="rule" method="post" action="/scanner-whitelist-submit">
 			<input type="hidden" name="_token" value="{{ csrf_token() }}">
-
 			<div class="form-group row">
 				<label for="application" class="col-md-3 col-form-label">Application: <span style="color:red">*</span></label>
 				<div class="col-md-9">
@@ -79,22 +77,6 @@
 					<input type="submit" value="Submit New Rule" class="btn btn-primary" />
 				</div>
 			</div>
-
-
-			<table>
-				<tr>
-					<td width="100" valign="top"><strong></strong></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td width="100"></td>
-					<td style="padding-left: 12px; background: url(images/note.gif) left center no-repeat;"><span class="small"></span></td>
-				</tr>
-				<tr>
-					<td width="100"></td>
-					<td></td>
-				</tr>
-			</table>
 		</form>
 	</div>
 </article>@endsection

@@ -6,7 +6,6 @@
 		Best Security Practices for Hosting Providers
 	</h1>
 	<div class="msc-block">
-
     <p>Protecting the environment is the most critical aspect of ensuring the security of your store. Keep all software on the server up to date, and apply security patches as recommended. This applies not only to Magento, but to any other software that is installed on the server, including database software and other websites that use the same server. Any system is only as secure as the weakest link.</p>
     <p>Follow the PCI DSS guidelines to build right security processes. </p>
     <p>Every merchant falls under PCI, even if you do not handle a large volume of transactions or use external providers to outsource your credit card information.</p>
