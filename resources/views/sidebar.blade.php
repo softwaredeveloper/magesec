@@ -21,7 +21,7 @@
             </article>
             <article class="msc-block">
               <p>
-                <em>Follow us on twitter <a href="https://twitter.com/mage_sec">@mage_sec</a> for the latest Magento security news. Contribute to the magesec.org website on github <a href="https://github.com/magesec/magesec">https://github.com/magesec/magesec</a>.</em>
+                <em>Follow us on twitter <a href="https://twitter.com/mage_sec">@mage_sec</a> for the latest Magento security news. Contribute to the magesec.org website on github <a href="https://github.com/magesec/magesec">magesec/magesec</a>.</em>
               </p>
             </article>                         
           </div>          
