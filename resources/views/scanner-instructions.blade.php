@@ -69,7 +69,7 @@ MAGENTO=/var/www/magento
 MWSCAN=/usr/bin/mwscan
 MWSCANLOCK=~/.mwscan.lock
 MWSCANLOG=/var/log/mwscan.log
-MWSCANFROM=From: Malware Scanner <noreply@yoursite.com>
+MWSCANFROM="From: Malware Scanner &lt;noreply@yoursite.com&gt;"
 PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 
 0 2 * * * root /usr/bin/curl -s $RULESURL -o $RULEFILE && flock -n $MWSCANKLOCK $MWSCAN --newonly --quiet $MAGENTO | ts | tee -a $MWSCANLOG | ifne mail -s "Malware found at $(hostname)" -a $MWSCANFROM $MAILTO</code></pre></p>
