@@ -20,7 +20,7 @@
     <p><a href="https://magento.com/security/best-practices/pci-compliance-checklist-ecommerce-businesses" target="_blank">https://magento.com/security/best-practices/pci-compliance-checklist-ecommerce-businesses</a></p>
 -->
     <ul class="msc-listing">
-        <li>Willem de Groot sample NGINX CONFIGURATION. <br/>
+        <li>Willem de Groot sample Nginx configuration:<br/>
         <a href="https://gist.github.com/gwillem/cd5ae6845fa33aa0d481" target="_blank">https://gist.github.com/gwillem/cd5ae6845fa33aa0d481</a></li>
         <li>Good collection of related information for e-commerce:<br/>
         <a href="https://blog.sucuri.net/tag/pci-compliance/" target="_blank">https://blog.sucuri.net/tag/pci-compliance/</a></li>

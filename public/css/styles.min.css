@@ -40,3 +40,9 @@ table{
 	padding-left: 1.8rem;
 	margin-bottom:.6rem;
 }
+pre.code {
+	border: 1px double silver;
+}
+h1.code {
+	margin-top: 25px;
+}

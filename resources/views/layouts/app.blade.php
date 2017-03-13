@@ -7,6 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="icon" href="/images/favicon.png" type="image/x-icon"><link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon">
   <link rel="stylesheet" href="/css/styles.min.css">
+  <link rel="stylesheet" href="/css/prism.css">
+  <script src="/js/prism.js"></script>
   <style>
     .pagination {
       list-style-type: none;
@@ -25,7 +27,7 @@
       <div class="row">
         <div class="col-md-12">
           <nav class="navbar navbar-light msc-nav">
-            <a href="/" class="msc-logo"><img src="/images/msc-logo.png" alt="msc-logo" class="msc-logo"></a>
+            <a href="/" class="msc-logo"><img src="/images/msc-logo.png" width="147" alt="msc-logo" class="msc-logo"></a>
             <button class="navbar-toggler hidden-md-up float-xs-right" type="button" data-toggle="collapse" data-target="#navbar-header" aria-controls="navbar-header" aria-expanded="false" aria-label="Toggle navigation"></button>
             <div class="collapse navbar-toggleable-xs msc-navbar" id="navbar-header">
               <ul class="nav navbar-nav msc-nav-list msc-nav-uset float-xs-right">
