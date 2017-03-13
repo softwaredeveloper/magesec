@@ -32,7 +32,7 @@
 		</p>
 		<p>
 			<ul class="msc-listing">
-				<li>Run Mage Malware Scanner on all Magento customers, every 24 hours, by default.</li>
+				<li>Run Mage Malware Scanner on all Magento customers every 24 hours by default.</li>
 				<li>Identify and contribute new malware rules to the council.</li>
 				<li>Notify all clients of infected stores within 24 hours.</li>
 				<li>Disable public access to infected stores within 24 hours if no response from store owners.</li>
