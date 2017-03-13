@@ -17,6 +17,7 @@
   <h1 class="msc-block__title">
     Contribute Rules
   </h1>
+</article>
   <div>
     @if ($errors->any())
     <span style="color:red">{!! implode('<br/>', $errors->all(':message')) !!}</span>
@@ -24,17 +25,16 @@
     <br/>
     @endif
     <p>Rules can be submitted two ways, by either a single matching string or as a yara formatted rule. You can submit rules anonymously or if logged into your account you will be listed as the author of the rule.</p>
-    <br/>
-    <p><strong>Example string:</strong>
+    <p><strong>Example String:</strong>
       <br/>
-      <code>{'yMk'}=$ {"_REQUEST"};</code>
+      <pre class="prettyprint language-bash code"><code>{'yMk'}=${"_REQUEST"};</code></pre>
     </p>
-    <br/>
     <p><strong>Example Yara Rule:</strong>
       <br/>
-      <code>strings: <br/>
-        $ = "{'yMk'}=$ {\"_REQUEST\"};"<br/>
-        condition: any of them</code><br/><br/></p>
+<pre class="prettyprint language-bash code"><code>strings:
+  $="{'yMk'}=${\"_REQUEST\"};"
+condition:
+  any of them</code></pre></p>
         <form name="rule" method="post" action="/scanner-rule-submit" class="msc-rule">
           <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
@@ -89,5 +89,5 @@
           </div>
         </form>
       </div>
-    </article>
+    
     @endsection
