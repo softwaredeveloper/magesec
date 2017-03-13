@@ -74,6 +74,13 @@ PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 
 0 2 * * * root /usr/bin/curl -s $RULESURL -o $RULEFILE && flock -n $MWSCANKLOCK $MWSCAN --newonly --quiet $MAGENTO | ts | tee -a $MWSCANLOG | ifne mail -s "Malware found at $(hostname)" -a $MWSCANFROM $MAILTO</code></pre></p>
 </p>
+
+<p>
+<p><h1 class="msc-block__title"><strong>IPS in Apache/Nginx</strong></h1></p>
+<p>The malware fingerprints are also published as mod_security rules to be used as an Intrusion Prevention System in Apache and Nginx:</p>
+<p><pre class="prettyprint code"><code class="language-bash">wget https://magesec.org/download/modsecurity.conf</code></pre></p>
+</p>
+
 <p><h1 class="msc-block__title"><strong>Troubleshooting</strong></h1></p>
 <p>When you receive the error <code class="prettyprint">pkg_resources.DistributionNotFound: requests</code> try to upgrade the <code class="prettyprint">request</code> package as follows:</p>
 <p><pre class="prettyprint code"><code class="language-bash">easy_install --upgrade requests</code></pre></p>
