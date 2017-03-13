@@ -7,7 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="icon" href="/images/favicon.png" type="image/x-icon"><link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon">
   <link rel="stylesheet" href="/css/styles.min.css">
-  <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+  <link rel="stylesheet" href="/css/prism.css">
+  <script src="/js/prism.js"></script>
   <style>
     .pagination {
       list-style-type: none;
