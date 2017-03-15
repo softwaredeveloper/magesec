@@ -76,10 +76,17 @@ class RuleCreate extends Command
                 unset($split[0]);
                 $line = implode('=',$split);
                 $line = trim($line);
+                $line = trim($line,' nocase');
                 $line = trim($line,'"');
                 $line = trim($line,"'");
                 if (strlen($line) > 0) {
-                  array_push($contents,$line);
+                  if (preg_match('/^[\/]/',$line) or ($type == 'modsecurity')) {
+				    $line = trim($line,"/");
+				    array_push($contents,$line);
+                  } else {
+                    $line = addcslashes($line,'$@"\()[]*., ');
+                    array_push($contents,$line);
+                  }
                 }
 			  }
 		    }

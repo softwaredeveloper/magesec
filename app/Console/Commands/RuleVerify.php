@@ -45,7 +45,7 @@ class RuleVerify extends Command
     {
         $rules = MalwareRules::all()->where('under_review',1)->where('rejected',0);
 
-
+        $reviewrules = 0;
         foreach ($rules as $rule) {
 
           $result = exec('yara -r temp/'.$rule->name.'.yar /home/magento_versions/');
@@ -61,15 +61,16 @@ class RuleVerify extends Command
             $rule->save();
 
           } else {
-		    $users = User::all()->where('admin',1);
-		    foreach ($users as $user) {
-		      Mail::to($user->email)->send(new RuleReviewed());
-            }
+            $reviewrules = 1;
             $rule->under_review = 0;
             $rule->save();
-
-
           }
         }
+        if ($reviewrules == 1) {
+          $users = User::all()->where('admin',1);
+		  foreach ($users as $user) {
+		    Mail::to($user->email)->send(new RuleReviewed());
+		  }
+		}
     }
 }
