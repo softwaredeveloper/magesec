@@ -61,7 +61,7 @@
           </label>
           <div class="col-sm-9">
             <input type="text" class="form-control"  name="name" size="20" maxchar="50"/>
-            <small class="form-text text-muted">The rule name must only contain alphanumeric characters, underscores and dashes and cannot begin with a letter.</small>
+            <small class="form-text text-muted">The rule name must only contain alphanumeric characters, underscores and dashes and must begin with a letter.</small>
           </div>
         </div>
         <div id="stringdiv" class="hide">
@@ -91,5 +91,5 @@
         </div>
       </form>
     </div>
-    
+
     @endsection

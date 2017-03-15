@@ -12,8 +12,8 @@ sudo apt install -qy php-cli php-mbstring php-xml composer
 cd magesec
 composer install
 
-cp .env.sample .env
-php artisan key:create
+cp .env.example .env
+php artisan key:generate
 
 php artisan serve -vvv
 ```

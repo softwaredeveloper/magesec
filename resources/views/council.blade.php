@@ -5,20 +5,43 @@
 	<h1 class="msc-block__title">
 		Members
 	</h1>
-	<div class="row">
-		<div class="col-md-6">
-			<a href="https://www.byte.nl" target="_blank"><img src="images/byte-logo.png" alt="byte" height="50" /></a>
-			<p>Founded in 1999, Byte is the Dutch and Belgian market leader. Thousands of agencies and merchants rely on its innovative Magento platform-as-a-service called Hypernode. Our mission is to "save developers time" so they can focus on creating the best online stores.
-				<br/><br/>
-				Byte also operates the free <a href="https://www.magereport.com">MageReport</a> service to verify patch and vulnerability status. Byte has 50 staff and is member of the <a href="https://www.intelli.gent/">Intelligent Group</a>.
-			</p>
-		</div>
-		<div class="col-md-6">
-			<a href="https://www.magemojo.com" target="_blank"><img src="images/magemojo-logo.png" alt="magemojo" height="50" /></a>
-			<p>Founded in 2009, MageMojo specializes exclusively in hosting for Magento. MageMojo was the first hosting company to be created exclusively to only host and support the Magento platform. By focusing solely on Magento they are able to provide Merchants with higher Magento performance, deeper Magento support, and lower hosting costs then their competitors.    
-			</p>
-		</div>
-	</div>
+
+		@php
+		$mains = array();
+		$members = array();
+		$dh = opendir('../resources/views/members/');
+		while (($file = readdir($dh)) !== false){
+		  if (strpos($file,'.blade.php') > -1) {
+		    if (strpos($file,'main.') > -1) {
+		      array_push($mains,$file);
+		    } else {
+		      array_push($members,$file);
+		    }
+		  }
+		}
+    	closedir($dh);
+
+    	shuffle($mains);
+    	shuffle($members);
+    	print '<div class="row">';
+		foreach($mains as $main) {
+			include('../resources/views/members/'.$main);
+		}
+		print '</div>';
+		foreach($members as $row=>$member) {
+		  if ($row % 2 == 0) {
+		    print '<div class="row">';
+		  }
+		  include('../resources/views/members/'.$member);
+		  if ($row % 2 == 1) {
+		    print '</div>';
+		  }
+		}
+		if ($row % 2 == 0) {
+		  print '</div>';
+		}
+		@endphp
+
 </article>
 <article class="msc-block">
 	<h1 class="msc-block__title">
