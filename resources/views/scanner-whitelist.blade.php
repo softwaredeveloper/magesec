@@ -74,6 +74,7 @@
 			</div>
 			<div class="form-group row">
 				<div class="offset-sm-3 col-sm-9">
+				    <div class="g-recaptcha" data-sitekey="{{ env('RE_CAP_SITE') }}"></div>
 					<input type="submit" value="Submit New Rule" class="btn btn-primary" />
 				</div>
 			</div>

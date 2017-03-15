@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Auth;
 use App\User;
 use Validator;
+use App\Traits\Captcha;
 use App\MalwareRules;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
@@ -14,9 +15,12 @@ use App\Http\Controllers\Controller;
 
 class RulesController extends Controller
 {
+	use \App\Traits\Captcha;
 
     public function create(Request $request)
     {
+    	$captcha = $this->captchaCheck();
+
         // Validate and store the rule...
         $typevalues = array('string','yararule');
         $validator = validator::make($request->all(), [
@@ -38,6 +42,13 @@ class RulesController extends Controller
             $rule = $request->rule;
           }
         }
+
+        $captcha = $this->captchaCheck();
+		if (!$captcha) {
+		  $validator->fails = 1;
+		  $validator->errors()->add('captcha', 'Invalid Capthca Input.');
+		}
+
 
         if (Auth::check()) {
 		  $user_id = Auth::user()->id;

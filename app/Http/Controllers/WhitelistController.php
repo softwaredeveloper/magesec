@@ -5,12 +5,15 @@ namespace App\Http\Controllers;
 use Auth;
 use App\User;
 use Validator;
+use App\Traits\Captcha;
 use App\Whitelist;
 use Illuminate\Http\Request;
 
 
 class WhitelistController extends Controller
 {
+	use \App\Traits\Captcha;
+
     public function create(Request $request)
     {
         // Validate and store the rule...
@@ -22,6 +25,12 @@ class WhitelistController extends Controller
 		        'hash' => 'required|alpha_num|max:50',
 		        'justification' => 'required|max:2000',
         ]);
+
+        $captcha = $this->captchaCheck();
+		if (!$captcha) {
+		  $validator->fails = 1;
+		  $validator->errors()->add('captcha', 'Invalid Capthca Input.');
+		}
 
         if (Auth::check()) {
 		  $user_id = Auth::user()->id;
