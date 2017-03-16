@@ -16,6 +16,12 @@
 grep -Erlf grep-standard.txt /path/to/magento</code></pre></p>
 </p>
 <p>
+<p><h1 class="msc-block__title code"><strong>Download full scanner</strong></h1></p>
+<p><pre class="prettyprint language-bash code"><code>git clone https://github.com/gwillem/magento-malware-scanner.git</code>
+or download directly from
+https://github.com/gwillem/magento-malware-scanner</pre></p>
+</p>
+<p>
 <p><h1 class="msc-block__title code"><strong>Install on Debian/Ubuntu</strong></h1></p>
 <p><pre class="prettyprint language-bash code"><code># Install prerequisites on Debian/Ubuntu flavoured server
 sudo apt install -qy python-pip gcc python-dev
