@@ -39,7 +39,7 @@ sudo pip install --no-cache-dir --upgrade mwscan</code></pre></p>
 <p>
 <p><h1 class="msc-block__title code"><strong>Run Manually</strong></h1></p>
 <p>Once installed using the instructions above, you can now run  and any hits will appear:</p>
-<p><pre class="prettyprint language-bash code"><code>mwscan /path/to/magento</code></pre>
+<p><pre class="prettyprint language-bash code"><code>mwscan --ruleset magesec /path/to/magento</code></pre>
 <p>Example results:</p>
 <p><pre class="prettyprint language-bash code"><code>eval_post /path/to/magento/media/dhl/info.php
 obfuscated_eval /path/to/magento/skin/backdoor1.php</code></pre></p>
