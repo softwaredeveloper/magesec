@@ -84,7 +84,7 @@ class RuleCreate extends Command
 				    $line = trim($line,"/");
 				    array_push($contents,$line);
                   } else {
-                    $line = addcslashes($line,'$@"\()[]*., ');
+                    $line = addcslashes($line,'$@"\()[]|*., ');
                     array_push($contents,$line);
                   }
                 }
