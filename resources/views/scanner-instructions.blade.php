@@ -82,7 +82,7 @@ EOM</code></pre></p>
 
 <p><h1 class="msc-block__title code"><strong>Troubleshooting</strong></h1></p>
 <p>When you receive the error <code class="prettyprint">pkg_resources.DistributionNotFound: requests</code> try to upgrade the <code class="prettyprint">request</code> package as follows:</p>
-<p><pre class="prettyprint language-bash code"><code>pip install --upgrade requests</code></pre></p>
+<p><pre class="prettyprint language-bash code"><code>yum -y reinstall python-requests</code></pre></p>
 
 
 </div>
