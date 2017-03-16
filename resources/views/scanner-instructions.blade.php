@@ -19,7 +19,7 @@ grep -Erlf grep-standard.txt /path/to/magento</code></pre></p>
 <p><h1 class="msc-block__title code"><strong>Install on Debian/Ubuntu</strong></h1></p>
 <p><pre class="prettyprint language-bash code"><code># Install prerequisites on Debian/Ubuntu flavoured server
 sudo apt install -qy python-pip gcc python-dev
-sudo pip install --no-cache-dir --upgrade mwscan</code></pre></p>
+sudo pip install --upgrade mwscan</code></pre></p>
 </p>
 <p>
 <p><h1 class="msc-block__title code"><strong>Install on Centos</strong></h1></p>
@@ -28,18 +28,18 @@ wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-6.noarch.rpm
 sudo rpm -ivh epel-release-latest-6.noarch.rpm
 # Install prerequisites on Centos flavoured server
 sudo yum -y install python-pip python-devel gcc
-sudo pip install --no-cache-dir --upgrade mwscan </code></pre></p>
+sudo pip install --upgrade mwscan </code></pre></p>
 </p>
 <p>
 <p><h1 class="msc-block__title code"><strong>Install on OSX</strong></h1></p>
 <p><pre class="prettyprint language-bash code"><code># Install prerequisites on a Mac OSX environemnt
 brew install yara python
-sudo pip install --no-cache-dir --upgrade mwscan</code></pre></p>
+sudo pip install --upgrade mwscan</code></pre></p>
 </p>
 <p>
 <p><h1 class="msc-block__title code"><strong>Run Manually</strong></h1></p>
 <p>Once installed using the instructions above, you can now run  and any hits will appear:</p>
-<p><pre class="prettyprint language-bash code"><code>mwscan /path/to/magento</code></pre>
+<p><pre class="prettyprint language-bash code"><code>mwscan --ruleset magesec /path/to/magento</code></pre>
 <p>Example results:</p>
 <p><pre class="prettyprint language-bash code"><code>eval_post /path/to/magento/media/dhl/info.php
 obfuscated_eval /path/to/magento/skin/backdoor1.php</code></pre></p>
@@ -82,7 +82,7 @@ EOM</code></pre></p>
 
 <p><h1 class="msc-block__title code"><strong>Troubleshooting</strong></h1></p>
 <p>When you receive the error <code class="prettyprint">pkg_resources.DistributionNotFound: requests</code> try to upgrade the <code class="prettyprint">request</code> package as follows:</p>
-<p><pre class="prettyprint language-bash code"><code>pip install --upgrade requests</code></pre></p>
+<p><pre class="prettyprint language-bash code"><code>yum -y reinstall python-requests</code></pre></p>
 
 
 </div>
