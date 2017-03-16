@@ -28,8 +28,8 @@
     <br/>
     <pre class="prettyprint language-bash code"><code>strings:
       $="{'yMk'}=${\"_REQUEST\"};"
-      condition:
-      any of them</code></pre></p>
+condition:
+  any of them</code></pre></p>
       <form name="rule" method="post" action="/scanner-rule-submit" class="msc-rule">
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
         @if ($errors->any())
