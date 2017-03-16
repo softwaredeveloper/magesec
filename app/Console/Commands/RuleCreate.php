@@ -99,7 +99,7 @@ class RuleCreate extends Command
 		  foreach ($contents as $line) {
 		    #Modsecurity cannot properly parse escaped double quotes
 		    if (strpos($line,'\"') === false) {
-		      $line = addcslashes($line,'@"\()[]*|');
+		      $line = addcslashes($line,'@"\()[]+*|');
 		      $line = str_replace('\\\(','\\(',$line);
 		      $line = str_replace('\\\)','\\)',$line);
 		      $txt .= 'SecRule REQUEST_BODY "'.$line.'" "phase:2,deny,id:'.$count.'"'."\n";
