@@ -56,7 +56,7 @@
                       
                 <br />
     <h2><strong>Don’t roll your own crypto</strong></h2>
-        <p>Magento provides an inbuilt encryption system to save your sensitive API keys and similar data into the database. All you have to do is specify the backend model of your field as Encrypted. e.g.:</p>p>
+        <p>Magento provides an inbuilt encryption system to save your sensitive API keys and similar data into the database. All you have to do is specify the backend model of your field as Encrypted. e.g.:</p>
         <pre>&lt;backend_model&gt;Magento\Config\Model\Config\Backend\Encrypted&lt;/backend_model&gt;
 </pre>
         
