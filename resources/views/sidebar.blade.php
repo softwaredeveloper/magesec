@@ -8,6 +8,7 @@
                 <li><a href="http://magereport.com/">Mage Report</a></li>
                 <li><a href="/scanner">Mage Malware Scanner</a></li>
                 <li><a href="https://github.com/magesec/magesecuritypatcher">Mage Security Patcher</a></li>
+                <li><a href="https://github.com/magesec/projectintegrity">Mage Project Integrity Checker</a></li>
               </ul>
             </article>
             <article class="msc-block">
@@ -21,7 +22,7 @@
             </article>
             <article class="msc-block msc-adv">
                 <em>Follow us on twitter <a href="https://twitter.com/mage_sec">@mage_sec</a> for the latest Magento security news. Contribute to the magesec.org website on github <a href="https://github.com/magesec/magesec">magesec/magesec</a>.</em>
-              
-            </article>                         
-          </div>          
+
+            </article>
+          </div>
         </div>
