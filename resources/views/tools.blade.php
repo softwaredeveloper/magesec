@@ -30,4 +30,12 @@
       <p>A more effective alternative to the standard magento patches. Instead of working on diffs of files it updates the entire file to the fully patched version. The complete patch also adds in form keys into custom templates that would not be included in the standard patch libraries.</p>
     </div>
   </article>
+  <article class="msc-block">
+    <h1 class="msc-block__title">
+      <a href="https://github.com/magesec/projectintegrity">Mage Project Integrity Checker</a>
+    </h1>
+    <div class="msc-block-info">
+      <p>A utility to verify a magento core application and check for modified core files. Works for all community versions and includes chechsums for the fully patched versions of 1.X installs.</p>
+    </div>
+  </article>
   @endsection
