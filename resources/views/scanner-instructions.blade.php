@@ -16,11 +16,6 @@
 grep -Erlf grep-standard.txt /path/to/magento</code></pre></p>
 </p>
 <p>
-<p><h1 class="msc-block__title code"><strong>Download full scanner</strong></h1></p>
-<p><pre class="prettyprint language-bash code"><code>git clone https://github.com/gwillem/magento-malware-scanner.git</code>
-or download directly from
-https://github.com/gwillem/magento-malware-scanner</pre></p>
-</p>
 <p>
 <p><h1 class="msc-block__title code"><strong>Install on Debian/Ubuntu</strong></h1></p>
 <p><pre class="prettyprint language-bash code"><code># Install prerequisites on Debian/Ubuntu flavoured server
@@ -33,7 +28,8 @@ sudo pip install --upgrade mwscan</code></pre></p>
 wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-6.noarch.rpm
 sudo rpm -ivh epel-release-latest-6.noarch.rpm
 # Install prerequisites on Centos flavoured server
-sudo yum -y install python-pip python-devel gcc
+sudo yum -y install python-pip python-devel python-requests gcc
+sudo pip install argparse
 sudo pip install --upgrade mwscan </code></pre></p>
 </p>
 <p>
@@ -80,16 +76,22 @@ PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 EOM</code></pre></p>
 </p>
 
+<p><h1 class="msc-block__title code"><strong>Troubleshooting</strong></h1></p>
+<p>When you receive the error <code class="prettyprint">pkg_resources.DistributionNotFound: requests</code> try to upgrade the <code class="prettyprint">request</code> package as follows:</p>
+<p><pre class="prettyprint language-bash code"><code>yum -y reinstall python-requests</code></pre></p>
+
+<p><h1 class="msc-block__title code"><strong>Download full scanner source</strong></h1></p>
+<p><pre class="prettyprint language-bash code"><code>git clone https://github.com/gwillem/magento-malware-scanner.git</code>
+or download directly from
+https://github.com/gwillem/magento-malware-scanner</pre></p>
+</p>
+
+
 <p>
 <p><h1 class="msc-block__title code"><strong>IPS in Apache/Nginx</strong></h1></p>
 <p>The malware fingerprints are also published as mod_security rules to be used as an Intrusion Prevention System in Apache and Nginx:</p>
 <p><pre class="prettyprint language-bash code"><code>wget https://magesec.org/download/modsecurity.conf</code></pre></p>
 </p>
-
-<p><h1 class="msc-block__title code"><strong>Troubleshooting</strong></h1></p>
-<p>When you receive the error <code class="prettyprint">pkg_resources.DistributionNotFound: requests</code> try to upgrade the <code class="prettyprint">request</code> package as follows:</p>
-<p><pre class="prettyprint language-bash code"><code>yum -y reinstall python-requests</code></pre></p>
-
 
 </div>
 </article>
