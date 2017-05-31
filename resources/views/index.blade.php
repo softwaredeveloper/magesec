@@ -6,6 +6,13 @@
     Magento Security News
   </h1>
   <div class="msc-block--news">
+    <p><em>May 31, 2017</em></p>
+    <p>Magento Patch SUPEE 9767 Released</p>
+    <p>This patch fixes multiple security vulnerabilities. The bulk of which require access to the admin before being exploitable. We are currently evaluating this patch for compatibility and will be adding this functionality to our security patcher.
+    <br/><br/><a href="https://magento.com/security/patches/supee-9767" target="_blank">Full Patch Details</a>
+    </p>
+  </div>
+  <div class="msc-block--news">
     <p><em>February 1, 2017</em></p>
     <p>A security vulnerability has been found in the following extensions:</p>
     <ul>
@@ -13,7 +20,7 @@
       <li><strong>Ajax Cart Pro</strong> - EM_Ajaxcart</li>
     </ul>
     <p>Exploits have been found in the wild. Contact each vendor for a patched version.</p>
-  </div>            
+  </div>
   <div class="msc-block--news">
     <p><em>January 13, 2017</em></p>
     <p>Magento has acknowledged a new potential remote code execution vulnerability in both Magento 1 and 2. This security risk is easily mitigated by changing the follwing setting in the magento admin. The values 'No/Specified' are not vulnerable. Approximately 5% of MAgento stores have this option enabled and are at risk.</p>
@@ -23,7 +30,7 @@
     </ul>
 
     <p>Full exploit details are here:<br/> <a href="https://magento.com/security/news/new-zend-framework-1-security-vulnerability" target="_blank">https://magento.com/security/news/new-zend-framework-1-security-vulnerability</a></p>
-  </div>            
+  </div>
 </article>
 
 @endsection
