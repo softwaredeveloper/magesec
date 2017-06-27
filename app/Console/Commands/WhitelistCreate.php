@@ -44,9 +44,18 @@ class WhitelistCreate extends Command
         $white = array();
         foreach ($whitelists as $whitelist) {
           $white[$whitelist->hash] = $whitelist->filepath;
+          $filename = basename($whitelist->filepath);
+          if (isset($filesize[$filename])) {
+            $filesize[$filename] = array_push($filesize[$filename],$whitelist->filesize);
+          } else {
+            $filesize[$filename] = array($whitelist->filesize);
+          }
         }
         $json = json_encode($white);
         $filename = 'public/download/whitelist-'.$timestamp.'.json';
+        file_put_contents($filename,$json);
+        $json = json_encode($filesize);
+		$filename = 'public/download/filesizewhitelist.json';
         file_put_contents($filename,$json);
     }
 }
