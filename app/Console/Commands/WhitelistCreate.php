@@ -42,20 +42,21 @@ class WhitelistCreate extends Command
         $timestamp = $this->argument('timestamp');
         $whitelists = Whitelist::all()->where('active',1);
         $white = array();
-        foreach ($whitelists as $whitelist) {
+        $filesize = array();
+	foreach ($whitelists as $whitelist) {
           $white[$whitelist->hash] = $whitelist->filepath;
-          $filename = basename($whitelist->filepath);
+          $filename = basename((string)$whitelist->filepath);
           if (isset($filesize[$filename])) {
-            $filesize[$filename] = array_push($filesize[$filename],$whitelist->filesize);
+            $filesize[$filename][count($filesize[$filename])] = $whitelist->filesize;
           } else {
-            $filesize[$filename] = array($whitelist->filesize);
+            $filesize[$filename][0] = $whitelist->filesize;
           }
         }
         $json = json_encode($white);
         $filename = 'public/download/whitelist-'.$timestamp.'.json';
         file_put_contents($filename,$json);
         $json = json_encode($filesize);
-		$filename = 'public/download/filesizewhitelist.json';
+	$filename = 'public/download/filesizewhitelist.json';
         file_put_contents($filename,$json);
     }
 }
