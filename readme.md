@@ -17,6 +17,7 @@ php artisan key:generate
 
 php artisan serve -vvv
 ```
+# [Freelance magento developer](https://www.phpfreelanceprogrammer.com/magento-programmer.html)
 
 # macos sierra w/valet
 Connection refused errors (Caddy not running): https://www.reddit.com/r/laravel/comments/53stwu/fix_laravel_valet_on_macos_sierra/
